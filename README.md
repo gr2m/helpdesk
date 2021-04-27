@@ -8,4 +8,5 @@ Answering all your (and some of my own) GitHub API/automation questions live at 
 
 ## Past
 
+- [Octokit automation: OpenAPI](https://github.com/gr2m/helpdesk/issues/5)
 - [Create a `cowsay` GitHub Action with JavaScript](https://github.com/gr2m/helpdesk/issues/4)
