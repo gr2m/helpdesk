@@ -5,6 +5,7 @@ Answering all your (and some of my own) GitHub API/automation questions live at 
 ## Upcoming
 
 - [📅 4/29 @ 1pm PT - GitHub Enterprise repository auditing with @jeffwilcox](https://github.com/gr2m/helpdesk/issues/1)
+- [📅 5/3 @ noon PT - GitHub Action Artifacts with @reconbot](https://github.com/gr2m/helpdesk/issues/7)
 
 ## Past
 
