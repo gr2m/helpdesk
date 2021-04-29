@@ -9,11 +9,11 @@ Got any questions or ideas? You can
 
 ## Upcoming
 
-- [📅 4/29 @ 1pm PT - GitHub Enterprise repository auditing with @jeffwilcox](https://github.com/gr2m/helpdesk/issues/1)
 - [📅 5/3 @ noon PT - GitHub Action Artifacts with @reconbot](https://github.com/gr2m/helpdesk/issues/7)
 
 ## Past
 
+- [GitHub Enterprise repository auditing with @jeffwilcox](https://github.com/gr2m/helpdesk/issues/1)
 - [Octokit automation: OpenAPI](https://github.com/gr2m/helpdesk/issues/5)
 - [Create a `cowsay` GitHub Action with JavaScript](https://github.com/gr2m/helpdesk/issues/4)
 
