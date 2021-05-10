@@ -6,6 +6,9 @@ on:
       - opened
       - closed
       - edited
+      - labeled
+      - reopened
+      - unlabeled
 
   workflow_dispatch: {}
 
