@@ -7,12 +7,7 @@ Got any questions or ideas? You can
 - Ping me on twitter: [@gr2m](https://twitter.com/gr2m)
 - [Create an issue in this repository](https://github.com/gr2m/helpdesk/issues/new)
 
-## Upcoming
-
-- 📅 5/10 @ noon PT - [Automating gr2m/helpdesk, Episode I](https://github.com/gr2m/helpdesk/issues/10)
-
 <!--START_SECTION:helpdesk-shows-->
-
 
 ## Upcoming
 
@@ -25,7 +20,6 @@ Got any questions or ideas? You can
 - [Octokit automation: OpenAPI](https://github.com/gr2m/helpdesk/issues/5)
 - [Create a `cowsay` GitHub Action with JavaScript](https://github.com/gr2m/helpdesk/issues/4)
 - [GitHub Enterprise repository auditing](https://github.com/gr2m/helpdesk/issues/1) with [@jeffwilcox](https://github.com/jeffwilcox)
-
 
 <!--END_SECTION:helpdesk-shows-->
 
