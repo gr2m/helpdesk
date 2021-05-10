@@ -65,11 +65,11 @@ const pastShowsText = pastShows
 
 const markdown = `
 
-## Upcoming
+## Upcoming shows
 
 ${upcomingShowsText}
 
-## Past
+## Past shows
 
 ${pastShowsText}
 
