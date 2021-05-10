@@ -4,12 +4,14 @@ Answering all your (and some of my own) GitHub API/automation questions live at 
 
 Got any questions or ideas? You can
 
-- Ping me on twitter: [@gr2m](https://twitter.com/gr2m)  
+- Ping me on twitter: [@gr2m](https://twitter.com/gr2m)
 - [Create an issue in this repository](https://github.com/gr2m/helpdesk/issues/new)
 
 ## Upcoming
 
 - 📅 5/10 @ noon PT - [Automating gr2m/helpdesk, Episode I](https://github.com/gr2m/helpdesk/issues/10)
+
+<!--START_SECTION:helpdesk-shows-->
 
 ## Past
 
@@ -18,6 +20,7 @@ Got any questions or ideas? You can
 - [GitHub Enterprise repository auditing with @jeffwilcox](https://github.com/gr2m/helpdesk/issues/1)
 - [Octokit automation: OpenAPI](https://github.com/gr2m/helpdesk/issues/5)
 - [Create a `cowsay` GitHub Action with JavaScript](https://github.com/gr2m/helpdesk/issues/4)
+<!--END_SECTION:helpdesk-shows-->
 
 ## How I use this repository
 
@@ -27,7 +30,7 @@ A show usually starts out with an idea on twitter, such as [the idea to audit re
 
 I add all `🏷 show` issues to this README as well as on https://github.com/gr2m/gr2m.
 
-I use the issue head of a show for preparation, to make sure the guests (if any) and I are on the same page, and to have a rough outline of steps I want to go through during the show. I try to keep the shows to 30 minutes and getting stuck in an unforeseen problem could blow that time limit very quickly, so I like to be prepared. I invite everyone interested in the show to subscribe to the issue. 
+I use the issue head of a show for preparation, to make sure the guests (if any) and I are on the same page, and to have a rough outline of steps I want to go through during the show. I try to keep the shows to 30 minutes and getting stuck in an unforeseen problem could blow that time limit very quickly, so I like to be prepared. I invite everyone interested in the show to subscribe to the issue.
 
 When the show goes live, I add a comment with a link to [twitch.tv/gregorcodes](https://www.twitch.tv/gregorcodes), and also send a tweet that the show is going live shortly.
 
