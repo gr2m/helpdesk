@@ -23,6 +23,7 @@ Got any questions or ideas? You can
 - [Create a `cowsay` GitHub Action with JavaScript](https://github.com/gr2m/helpdesk/issues/4)
 - [GitHub Enterprise repository auditing](https://github.com/gr2m/helpdesk/issues/1) with [@jeffwilcox](https://github.com/jeffwilcox)
 
+
 <!--END_SECTION:helpdesk-shows-->
 
 ## How I use this repository
