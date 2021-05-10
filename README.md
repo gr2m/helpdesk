@@ -13,13 +13,20 @@ Got any questions or ideas? You can
 
 <!--START_SECTION:helpdesk-shows-->
 
+
+## Upcoming
+
+- 📅 5/10 @ noon PT — [Automating gr2m/helpdesk, Episode I](https://github.com/gr2m/helpdesk/issues/10)
+
 ## Past
 
 - [Script Kit meets Octokit](https://github.com/gr2m/helpdesk/issues/8) with [@johnlindquist](https://github.com/johnlindquist)
 - [GitHub Action Artifacts](https://github.com/gr2m/helpdesk/issues/7) with [@reconbot](https://github.com/reconbot)
-- [GitHub Enterprise repository auditing with @jeffwilcox](https://github.com/gr2m/helpdesk/issues/1)
 - [Octokit automation: OpenAPI](https://github.com/gr2m/helpdesk/issues/5)
 - [Create a `cowsay` GitHub Action with JavaScript](https://github.com/gr2m/helpdesk/issues/4)
+- [GitHub Enterprise repository auditing](https://github.com/gr2m/helpdesk/issues/1) with [@jeffwilcox](https://github.com/jeffwilcox)
+
+
 <!--END_SECTION:helpdesk-shows-->
 
 ## How I use this repository
