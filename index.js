@@ -84,4 +84,15 @@ await ReadmeBox.updateSection(markdown, {
   message: "docs(README): update helpdesk shows",
 });
 
-console.log("README updated!");
+console.log("README updated in gr2m/helpdesk");
+
+await ReadmeBox.updateSection(markdown, {
+  owner: "gr2m",
+  repo: "gr2m",
+  token: process.env.GITHUB_TOKEN,
+  section: "helpdesk-shows",
+  branch: "main",
+  message: "docs(README): update helpdesk shows",
+});
+
+console.log("README updated in gr2m/gr2m");
