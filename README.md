@@ -23,7 +23,6 @@ Got any questions or ideas? You can
 - [Create a `cowsay` GitHub Action with JavaScript](https://github.com/gr2m/helpdesk/issues/4)
 - [GitHub Enterprise repository auditing](https://github.com/gr2m/helpdesk/issues/1) with [@jeffwilcox](https://github.com/jeffwilcox)
 
-
 <!--END_SECTION:helpdesk-shows-->
 
 ## How I use this repository
@@ -43,3 +42,16 @@ After the show I add a comment to the Twitch recording for people who missed the
 Then I upload the recording to YouTube and add another comment with a link to the video on YouTube, as this one won't be removed after 14 days.
 
 After that, I close the issue, and move the show to the "Past" section in this README as well as on https://github.com/gr2m/gr2m
+
+## Progress on automating this repository
+
+My goal is to automate everything about my helpdesk show that can be automated. You can find a list of past and upcoming shows about automating helpdesk at https://github.com/gr2m/helpdesk/issues?q=label%3A%22automating+helpdesk%22
+
+- [x] automate "Upcoming shows" / "Past shows" sections in the repository README — [#10](https://github.com/gr2m/helpdesk/issues/10)
+- [x] automate "Upcoming shows" / "Past shows" sections on [my profile page](https://github.com/gr2m/) — [#10](https://github.com/gr2m/helpdesk/issues/10)
+- [ ] add a comment when I go live on twitch
+- [ ] Send out tweet when I go live on twitch
+- [ ] Send out tweet in the morning before a live show
+- [ ] add comment with a link to the twitch recording once it's available
+- [ ] add a comment with a link to the video on YouTube once it's available in maximal resolution
+- [ ] figure out a way to populate show notes from twitch comments
