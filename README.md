@@ -13,11 +13,11 @@ Got any questions or ideas? You can
 ## Upcoming shows
 
 - 📅 5/17 @ noon PT — [Automating gr2m/helpdesk, Episode II](https://github.com/gr2m/helpdesk/issues/14)
-- 📅 5/13 @ 1pm PT — [Slash commands & rebasing pull requests](https://github.com/gr2m/helpdesk/issues/13) with [davidguttman](https://github.com/avidguttman)
 - 📅 5/18 @ 10:30am PT — [Learn with Jason: GitHub Automation with Octokit](https://github.com/gr2m/helpdesk/issues/11)
 
 ## Past shows
 
+- [Slash commands & rebasing pull requests](https://github.com/gr2m/helpdesk/issues/13) with [@davidguttman](https://github.com/davidguttman)
 - [Automating gr2m/helpdesk, Episode I](https://github.com/gr2m/helpdesk/issues/10)
 - [Script Kit meets Octokit](https://github.com/gr2m/helpdesk/issues/8) with [@johnlindquist](https://github.com/johnlindquist)
 - [GitHub Action Artifacts](https://github.com/gr2m/helpdesk/issues/7) with [@reconbot](https://github.com/reconbot)
