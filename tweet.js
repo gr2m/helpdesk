@@ -1,7 +1,12 @@
 import Twitter from "twitter";
 
+if (!process.env.INPUT_TEXT) {
+  console.log("text input missing (INPUT_TEXT)");
+  process.exit(1);
+}
+
 tweet({
-  status: "Hell from my terminal",
+  status: process.env.INPUT_TEXT,
 }).then(console.log, console.error);
 
 async function tweet(options) {
