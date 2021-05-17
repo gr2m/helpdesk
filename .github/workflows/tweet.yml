@@ -14,3 +14,9 @@ jobs:
       - uses: actions/setup-node@v2
       - run: npm ci
       - run: node tweet.js
+        env:
+          TEXT: ${{ env.INPUT_TEXT }}
+          TWITTER_TEST_CONSUMER_KEY: ${{ secrets.TWITTER_TEST_CONSUMER_KEY }}
+          TWITTER_TEST_CONSUMER_SECRET: ${{ secrets.TWITTER_TEST_CONSUMER_SECRET }}
+          TWITTER_TEST_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_TEST_ACCESS_TOKEN_KEY }}
+          TWITTER_TEST_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_TEST_ACCESS_TOKEN_SECRET }}
