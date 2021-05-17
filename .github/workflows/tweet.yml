@@ -16,7 +16,7 @@ jobs:
       - run: node tweet.js
         env:
           TEXT: ${{ github.event.inputs.text }}
-          TWITTER_TEST_CONSUMER_KEY: ${{ secrets.TWITTER_TEST_CONSUMER_KEY }}
-          TWITTER_TEST_CONSUMER_SECRET: ${{ secrets.TWITTER_TEST_CONSUMER_SECRET }}
-          TWITTER_TEST_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_TEST_ACCESS_TOKEN_KEY }}
-          TWITTER_TEST_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_TEST_ACCESS_TOKEN_SECRET }}
+          TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
