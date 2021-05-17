@@ -15,7 +15,7 @@ jobs:
       - run: npm ci
       - run: node tweet.js
         env:
-          TEXT: ${{ env.INPUT_TEXT }}
+          TEXT: ${{ github.event.inputs.text }}
           TWITTER_TEST_CONSUMER_KEY: ${{ secrets.TWITTER_TEST_CONSUMER_KEY }}
           TWITTER_TEST_CONSUMER_SECRET: ${{ secrets.TWITTER_TEST_CONSUMER_SECRET }}
           TWITTER_TEST_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_TEST_ACCESS_TOKEN_KEY }}
