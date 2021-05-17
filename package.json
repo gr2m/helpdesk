@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Answering all your (and some of my own) GitHub API/automation questions live at [twitch.tv/gregorcodes](https://www.twitch.tv/gregorcodes)",
-  "main": "index.js",
   "scripts": {},
   "repository": "https://github.com/gr2m/helpdesk",
   "keywords": [],

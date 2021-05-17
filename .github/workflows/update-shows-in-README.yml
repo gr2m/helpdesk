@@ -21,6 +21,6 @@ jobs:
         with:
           node-version: 14
       - run: npm ci
-      - run: node index.js
+      - run: node update-show-sections-in-readmes.js
         env:
           GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}
