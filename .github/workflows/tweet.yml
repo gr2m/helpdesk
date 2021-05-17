@@ -1,6 +1,10 @@
 name: "Tweet"
 on: 
-  workflow_dispatch: {}
+  workflow_dispatch: 
+    inputs:
+      text:
+        description: 'Text to tweet'     
+        required: true
   
 jobs:
   tweet: 
