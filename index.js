@@ -2,14 +2,15 @@ import { Octokit } from "@octokit/core";
 import { paginateRest } from "@octokit/plugin-paginate-rest";
 import { ReadmeBox } from "readme-box";
 
+// Create Octokit constructor with .paginate API and custom user agent
 const MyOctokit = Octokit.plugin(paginateRest).defaults({
-  userAgent: "gr2m-helpdesk/1.0.0",
+  userAgent: "gr2m-helpdesk",
 });
-
 const octokit = new MyOctokit({
   auth: process.env.GITHUB_TOKEN,
 });
 
+// load all open issues with the `show` label
 const issues = await octokit.paginate("GET /repos/{owner}/{repo}/issues", {
   owner: "gr2m",
   repo: "helpdesk",
@@ -18,9 +19,9 @@ const issues = await octokit.paginate("GET /repos/{owner}/{repo}/issues", {
   per_page: 100,
 });
 
+// split up the shows between upcoming (open issue) and past shows (closed issues)
 const upcomingShows = [];
 const pastShows = [];
-
 for (const issue of issues) {
   const [datetime, , title, , guest] = issue.title.split(/ (- |with @)/g);
 
@@ -41,6 +42,7 @@ for (const issue of issues) {
   }
 }
 
+// Create markdown code for both show sectiosn
 const upcomingShowsText = upcomingShows
   .map(({ datetime, title, url, guest }) => {
     if (guest) {
@@ -75,6 +77,7 @@ ${pastShowsText}
 
 `;
 
+// update the shows section in gr2m/helpdesk
 await ReadmeBox.updateSection(markdown, {
   owner: "gr2m",
   repo: "helpdesk",
@@ -86,6 +89,7 @@ await ReadmeBox.updateSection(markdown, {
 
 console.log("README updated in gr2m/helpdesk");
 
+// update the shows section in gr2m/gr2m
 await ReadmeBox.updateSection(markdown, {
   owner: "gr2m",
   repo: "gr2m",
