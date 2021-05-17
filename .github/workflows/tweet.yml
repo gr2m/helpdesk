@@ -1,0 +1,12 @@
+name: "Tweet"
+on: 
+  workflow_dispatch: {}
+  
+jobs:
+  tweet: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: npm ci
+      - run: node tweet.js
