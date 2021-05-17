@@ -7,7 +7,10 @@ if (!process.env.TEXT) {
 
 tweet({
   status: process.env.TEXT,
-}).then(console.log, console.error);
+}).then(console.log, (error) => {
+  console.error(error);
+  process.exit(1);
+});
 
 async function tweet(options) {
   const twitter = new Twitter({
