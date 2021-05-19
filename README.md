@@ -12,6 +12,7 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
+- 📅 5/20 @ 1pm PT — [copy GitHub repositories with issues, labels, milestones, and assignees](https://github.com/gr2m/helpdesk/issues/16)
 - 📅 5/18 @ 10:30am PT — [Learn with Jason: GitHub Automation with Octokit](https://github.com/gr2m/helpdesk/issues/11) with [jlengstorf](https://github.com/lengstorf)
 
 ## Past shows
