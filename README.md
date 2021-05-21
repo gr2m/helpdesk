@@ -14,10 +14,10 @@ Got any questions or ideas? You can
 
 - 📅 5/25 @ 11am — [30 Minutes to Merge: Automating nose booping using Actions](https://github.com/gr2m/helpdesk/issues/18) with [github](https://github.com/ithub)
 - 📅 5/24 @ noon PT — [Automating gr2m/helpdesk, Episode III](https://github.com/gr2m/helpdesk/issues/17)
-- 📅 5/20 @ 1pm PT — [copy GitHub repositories with issues, labels, milestones, and assignees](https://github.com/gr2m/helpdesk/issues/16)
 
 ## Past shows
 
+- [copy GitHub repositories with issues, labels, milestones, and assignees](https://github.com/gr2m/helpdesk/issues/16)
 - [Automating gr2m/helpdesk, Episode II](https://github.com/gr2m/helpdesk/issues/14)
 - [Slash commands & rebasing pull requests](https://github.com/gr2m/helpdesk/issues/13) with [@davidguttman](https://github.com/davidguttman)
 - [Learn with Jason: GitHub Automation with Octokit](https://github.com/gr2m/helpdesk/issues/11) with [@jlengstorf](https://github.com/jlengstorf)
