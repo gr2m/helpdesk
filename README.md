@@ -12,7 +12,7 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
-- 📅 5/25 @ 11am — [30 Minutes to Merge: GitHub Automation](https://github.com/gr2m/helpdesk/issues/18)
+- 📅 5/25 @ 11am — [30 Minutes to Merge: GitHub Automation (booping more noses)](https://github.com/gr2m/helpdesk/issues/18)
 - 📅 5/24 @ noon PT — [Automating gr2m/helpdesk, Episode III](https://github.com/gr2m/helpdesk/issues/17)
 - 📅 5/20 @ 1pm PT — [copy GitHub repositories with issues, labels, milestones, and assignees](https://github.com/gr2m/helpdesk/issues/16)
 - 📅 5/18 @ 10:30am PT — [Learn with Jason: GitHub Automation with Octokit](https://github.com/gr2m/helpdesk/issues/11) with [jlengstorf](https://github.com/lengstorf)
