@@ -15,10 +15,10 @@ Got any questions or ideas? You can
 - 📅 5/31 @ noon PT — [Automating gr2m/helpdesk, Episode IV](https://github.com/gr2m/helpdesk/issues/21)
 - 📅 5/27 @ 1pm PT — [transfer issues with comments while retaining authorship, labels, and milestones](https://github.com/gr2m/helpdesk/issues/20)
 - 📅 5/25 @ 11am PT — [30 Minutes to Merge: Automating nose booping using Actions](https://github.com/gr2m/helpdesk/issues/18) with [github](https://github.com/ithub)
-- 📅 5/24 @ noon PT — [Automating gr2m/helpdesk, Episode III](https://github.com/gr2m/helpdesk/issues/17)
 
 ## Past shows
 
+- [Automating gr2m/helpdesk, Episode III](https://github.com/gr2m/helpdesk/issues/17)
 - [copy GitHub repositories with issues, labels, milestones, and assignees](https://github.com/gr2m/helpdesk/issues/16)
 - [Automating gr2m/helpdesk, Episode II](https://github.com/gr2m/helpdesk/issues/14)
 - [Slash commands & rebasing pull requests](https://github.com/gr2m/helpdesk/issues/13) with [@davidguttman](https://github.com/davidguttman)
