@@ -41,7 +41,7 @@ A show usually starts out with an idea on twitter, such as [the idea to audit re
 
 I add all `🏷 show` issues to this README as well as on https://github.com/gr2m/gr2m.
 
-I use the issue head of a show for preparation, to make sure the guests (if any) and I are on the same page, and to have a rough outline of steps I want to go through during the show. I try to keep the shows to 30 minutes and getting stuck in an unforeseen problem could blow that time limit very quickly, so I like to be prepared. I invite everyone interested in the show to subscribe to the issue.
+I use the issue for preparation, to make sure the guests (if any) and I are on the same page, and to have a rough outline of steps I want to go through during the show. I try to keep the shows to 30 minutes and getting stuck in an unforeseen problem could blow that time limit very quickly, so I like to be prepared. I invite everyone interested in the show to subscribe to the issue.
 
 When the show goes live, I add a comment with a link to [twitch.tv/gregorcodes](https://www.twitch.tv/gregorcodes), and also send a tweet that the show is going live shortly.
 
@@ -57,9 +57,10 @@ My goal is to automate everything about my helpdesk show that can be automated. 
 
 - [x] automate "Upcoming shows" / "Past shows" sections in the repository README — [#10](https://github.com/gr2m/helpdesk/issues/10)
 - [x] automate "Upcoming shows" / "Past shows" sections on [my profile page](https://github.com/gr2m/) — [#10](https://github.com/gr2m/helpdesk/issues/10)
-- [ ] add a comment when I go live on twitch
+- [ ] add a comment to the issue when I go live on twitch
+- [ ] Send out tweet 30 minutes before the show goes live
 - [ ] Send out tweet when I go live on twitch
-- [ ] Send out tweet in the morning before a live show
+- [ ] Send out tweet when the video is available on YouTube
 - [ ] add comment with a link to the twitch recording once it's available
 - [ ] add a comment with a link to the video on YouTube once it's available in maximal resolution
 - [ ] figure out a way to populate show notes from twitch comments
