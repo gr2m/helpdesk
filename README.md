@@ -13,7 +13,7 @@ Got any questions or ideas? You can
 ## Upcoming shows
 
 - 📅 5/31 @ noon PT — [Automating gr2m/helpdesk, Episode IV](https://github.com/gr2m/helpdesk/issues/21)
-- 📅 5/27 @ 1pm PT — [transfer issues with comments while retaining authorship, labels, and milestones](https://github.com/gr2m/helpdesk/issues/20)
+- 📅 5/27 @ 1pm PT — [transfer issues + comments between repositories while retaining authorship, labels, and milestones](https://github.com/gr2m/helpdesk/issues/20)
 - 📅 5/25 @ 11am PT — [30 Minutes to Merge: Automating nose booping using Actions](https://github.com/gr2m/helpdesk/issues/18) with [github](https://github.com/ithub)
 
 ## Past shows
