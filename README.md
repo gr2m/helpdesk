@@ -12,6 +12,7 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
+- 📅 6/10 @ 1pm PT — [How to update lock files silently (Part II)](https://github.com/gr2m/helpdesk/issues/24)
 - 📅 6/3 @ 1pm PT — [How to update lock files silently](https://github.com/gr2m/helpdesk/issues/22)
 
 ## Past shows
