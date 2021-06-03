@@ -14,10 +14,10 @@ Got any questions or ideas? You can
 
 - 📅 6/7 @ noon PT — [Automating gr2m/helpdesk, Episode V](https://github.com/gr2m/helpdesk/issues/25)
 - 📅 6/10 @ 1pm PT — [How to update lock files silently (Part II)](https://github.com/gr2m/helpdesk/issues/24)
-- 📅 6/3 @ 1pm PT — [How to update lock files silently](https://github.com/gr2m/helpdesk/issues/22)
 
 ## Past shows
 
+- [How to update lock files silently](https://github.com/gr2m/helpdesk/issues/22)
 - [Automating gr2m/helpdesk, Episode IV](https://github.com/gr2m/helpdesk/issues/21)
 - [transfer issues + comments between repositories while retaining authorship, labels, and milestones](https://github.com/gr2m/helpdesk/issues/20)
 - [30 Minutes to Merge: Automating nose booping using Actions](https://github.com/gr2m/helpdesk/issues/18) with [@github](https://github.com/github)
