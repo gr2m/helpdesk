@@ -14,7 +14,7 @@
     "@octokit/plugin-paginate-rest": "^2.13.3",
     "dayjs": "^1.10.4",
     "dotenv": "^10.0.0",
-    "readme-box": "^0.2.0",
-    "twitter": "^1.7.1"
+    "oauth-1.0a": "^2.2.6",
+    "readme-box": "^0.2.0"
   }
 }
