@@ -2,11 +2,17 @@ import dotenv from "dotenv";
 import { Octokit } from "@octokit/core";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat.js";
+import utc from "dayjs/plugin/utc.js";
+import timezone from "dayjs/plugin/timezone.js";
 
 import { twitterRequest } from "./lib/twitter-request.js";
 
-dayjs.extend(customParseFormat);
 dotenv.config();
+
+dayjs.extend(customParseFormat);
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault("America/Los_Angeles");
 
 const ANNOUNCEMENT_TWEET_TEMPLATE = `📯  Starting in 30 minutes
 
@@ -162,11 +168,6 @@ async function setScheduledTweets() {
       console.log(`announcementScheduledAt`);
       console.log(announcementScheduledAt);
 
-      console.log(`announcementText.trim()`);
-      console.log(announcementText.trim());
-      console.log(`scheduledAnnouncementTweet.tweet.text.trim()`);
-      console.log(scheduledAnnouncementTweet.tweet.text.trim());
-
       if (
         scheduledAnnouncementTweet.scheduledAt !== announcementScheduledAt ||
         announcementText.trim() !== scheduledAnnouncementTweet.tweet.text.trim()
@@ -207,11 +208,6 @@ async function setScheduledTweets() {
       console.log(scheduledLiveNowTweet.scheduledAt);
       console.log(`liveNowScheduledAt`);
       console.log(liveNowScheduledAt);
-
-      console.log(`liveNowText.trim()`);
-      console.log(liveNowText.trim());
-      console.log(`scheduledLiveNowTweet.tweet.text.trim()`);
-      console.log(scheduledLiveNowTweet.tweet.text.trim());
 
       if (
         scheduledLiveNowTweet.scheduledAt !== liveNowScheduledAt ||
