@@ -162,6 +162,12 @@ async function setScheduledTweets() {
     ).replace("{URL}", scheduledShow.issue.html_url);
     const liveNowScheduledAt = scheduledShow.scheduledAt;
 
+    console.log(`dayjs.tz.guess()`);
+    console.log(dayjs.tz.guess());
+
+    console.log(`scheduledShow.scheduledAt`);
+    console.log(scheduledShow.scheduledAt);
+
     if (scheduledAnnouncementTweet) {
       console.log(`scheduledAnnouncementTweet.scheduledAt`);
       console.log(scheduledAnnouncementTweet.scheduledAt);
