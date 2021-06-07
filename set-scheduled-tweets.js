@@ -1,10 +1,9 @@
-import { promisify } from "util";
-
-import Twitter from "twitter-lite";
 import dotenv from "dotenv";
 import { Octokit } from "@octokit/core";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat.js";
+
+import { twitterRequest } from "./lib/twitter-request.js";
 
 dayjs.extend(customParseFormat);
 dotenv.config();
@@ -22,12 +21,12 @@ const LIVE_NOW_TWEET_TEMPLATE = `🔴  Now live at https://twitch.tv/gregorcodes
 
 {URL}`;
 
-setScheduledTweets({}).then(console.log, (error) => {
+setScheduledTweets().catch((error) => {
   console.error(error);
   process.exit(1);
 });
 
-async function setScheduledTweets(options) {
+async function setScheduledTweets() {
   const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,
   });
@@ -59,16 +58,22 @@ async function setScheduledTweets(options) {
 
       // Monday, May 17th, 2021 12:00pm
       // workaround: cannot parse "June 3, 2021 1:00pm" but can parse "June 3, 2021 12:00pm"
-      const timeStringWithAmPm = timeString.replace(/(am|pm)\b/, "");
-      const time = dayjs(
-        [dayString, timeStringWithAmPm].join(" "),
+      const timeStringWithoutAmPm = timeString.replace(/(am|pm)\b/, "");
+      let time = dayjs(
+        [dayString, timeStringWithoutAmPm].join(" "),
         // "MMMM D, YYYY H:mma", // see workaround
         "MMMM D, YYYY H:mm",
         true
       );
 
-      // ignore open issues for shows that are in the past
-      if (time.toISOString() < dayjs().toISOString()) return;
+      // see workaround above. Parsing am/pm is not working
+      if (time.get("hour") < 8) {
+        time = time.add(12, "hours");
+      }
+
+      if (time.toISOString() < dayjs().toISOString())
+        // ignore open issues for shows that are in the past
+        return;
 
       const [datetime, , title, , guest] = issue.title.split(/ (- |with @)/g);
 
@@ -81,17 +86,19 @@ async function setScheduledTweets(options) {
     })
     .filter(Boolean);
 
-  const twitter = new Twitter({
-    consumer_key: process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
-    subdomain: "ads-api",
-    version: 9,
-  });
+  const auth = {
+    consumerKey: process.env.TWITTER_CONSUMER_KEY,
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+    accessTokenKey: process.env.TWITTER_ACCESS_TOKEN_KEY,
+    accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+  };
 
-  const { data } = await twitter.get(
-    `accounts/${process.env.TWITTER_ACCOUNT_ID}/scheduled_tweets`
+  const data = await twitterRequest(
+    `GET accounts/:account_id/scheduled_tweets`,
+    {
+      auth,
+      account_id: process.env.TWITTER_ACCOUNT_ID,
+    }
   );
 
   const scheduledTweets = data
@@ -154,12 +161,16 @@ async function setScheduledTweets(options) {
         scheduledAnnouncementTweet.scheduledAt !== announcementScheduledAt ||
         announcementText.trim() !== scheduledAnnouncementTweet.tweet.text.trim()
       ) {
-        await twitter.put(
-          `accounts/${process.env.TWITTER_ACCOUNT_ID}/scheduled_tweets/${scheduledAnnouncementTweet.tweet.id}`,
-          {
-            scheduled_at: announcementScheduledAt,
-            text: announcementText,
-          }
+        const options = {
+          auth,
+          account_id: process.env.TWITTER_ACCOUNT_ID,
+          scheduled_tweet_id: scheduledAnnouncementTweet.tweet.id_str,
+          scheduled_at: announcementScheduledAt,
+          text: announcementText,
+        };
+        await twitterRequest(
+          `PUT accounts/:account_id/scheduled_tweets/:scheduled_tweet_id`,
+          options
         );
 
         console.log("Announcement tweet updated");
@@ -167,13 +178,16 @@ async function setScheduledTweets(options) {
         console.log("Announcement tweet is already set");
       }
     } else {
-      await twitter.post(
-        `accounts/${process.env.TWITTER_ACCOUNT_ID}/scheduled_tweets`,
-        {
-          scheduled_at: announcementScheduledAt,
-          text: announcementText,
-          as_user_id: process.env.TWITTER_USER_ID,
-        }
+      const options = {
+        auth,
+        account_id: process.env.TWITTER_ACCOUNT_ID,
+        scheduled_at: announcementScheduledAt,
+        text: announcementText,
+        as_user_id: process.env.TWITTER_USER_ID,
+      };
+      await twitterRequest(
+        `POST accounts/:account_id/scheduled_tweets`,
+        options
       );
       console.log("Announcement tweet scheduled.");
     }
@@ -183,12 +197,16 @@ async function setScheduledTweets(options) {
         scheduledLiveNowTweet.scheduledAt !== liveNowScheduledAt ||
         liveNowText !== scheduledLiveNowTweet.tweet.text.trim()
       ) {
-        await updateScheduledTweet(
-          `accounts/${process.env.TWITTER_ACCOUNT_ID}/scheduled_tweets/${scheduledLiveNowTweet.tweet.id}`,
-          {
-            scheduled_at: liveNowScheduledAt,
-            text: liveNowText,
-          }
+        const options = {
+          auth,
+          account_id: process.env.TWITTER_ACCOUNT_ID,
+          scheduled_tweet_id: scheduledAnnouncementTweet.tweet.id_str,
+          scheduled_at: liveNowScheduledAt,
+          text: liveNowText,
+        };
+        await twitterRequest(
+          `PUT accounts/:account_id/scheduled_tweets/:scheduled_tweet_id`,
+          options
         );
 
         console.log("Live now tweet updated");
@@ -196,13 +214,16 @@ async function setScheduledTweets(options) {
         console.log("Live now tweet is already set");
       }
     } else {
-      await twitter.post(
-        `accounts/${process.env.TWITTER_ACCOUNT_ID}/scheduled_tweets`,
-        {
-          scheduled_at: liveNowText,
-          text: liveNowScheduledAt,
-          as_user_id: process.env.TWITTER_USER_ID,
-        }
+      const options = {
+        auth,
+        account_id: process.env.TWITTER_ACCOUNT_ID,
+        scheduled_at: liveNowScheduledAt,
+        text: liveNowText,
+        as_user_id: process.env.TWITTER_USER_ID,
+      };
+      await twitterRequest(
+        `POST accounts/:account_id/scheduled_tweets`,
+        options
       );
       console.log("Live tweet scheduled.");
     }
@@ -214,7 +235,15 @@ async function setScheduledTweets(options) {
     );
 
     if (!scheduledShow) {
-      console.log("TODO: delete scheduled tweet (%j)", scheduledTweet);
+      await twitterRequest(
+        "PUT accounts/:account_id/scheduled_tweets/:scheduled_tweet_id",
+        {
+          auth,
+          account_id: process.env.TWITTER_ACCOUNT_ID,
+          scheduled_tweet_id: scheduledTweet.tweet.id_str,
+        }
+      );
+      console.log("tweet deleted: %s", scheduledTweet.tweet.text);
     }
   }
 
