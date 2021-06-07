@@ -11,6 +11,10 @@ on:
       - unlabeled
 
   workflow_dispatch: {}
+  
+concurrency: 
+  group: update-shows
+  cancel-in-progress: true
 
 jobs:
   update:
