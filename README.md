@@ -13,11 +13,11 @@ Got any questions or ideas? You can
 ## Upcoming shows
 
 - 📅 6/14 @ noon PT — [Automating gr2m/helpdesk, Episode VI](https://github.com/gr2m/helpdesk/issues/27)
-- 📅 6/7 @ noon PT — [Automating gr2m/helpdesk, Episode V](https://github.com/gr2m/helpdesk/issues/25)
 - 📅 6/10 @ 1pm PT — [How to update lock files silently (Part II)](https://github.com/gr2m/helpdesk/issues/24)
 
 ## Past shows
 
+- [Automating gr2m/helpdesk, Episode V](https://github.com/gr2m/helpdesk/issues/25)
 - [How to update lock files silently](https://github.com/gr2m/helpdesk/issues/22)
 - [Automating gr2m/helpdesk, Episode IV](https://github.com/gr2m/helpdesk/issues/21)
 - [transfer issues + comments between repositories while retaining authorship, labels, and milestones](https://github.com/gr2m/helpdesk/issues/20)
