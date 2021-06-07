@@ -9,7 +9,6 @@ Got any questions or ideas? You can
 
 <!--START_SECTION:helpdesk-shows-->
 
-
 ## Upcoming shows
 
 - 📅 6/7 @ noon PT — [Automating gr2m/helpdesk, Episode V](https://github.com/gr2m/helpdesk/issues/25)
@@ -32,7 +31,6 @@ Got any questions or ideas? You can
 - [Octokit automation: OpenAPI](https://github.com/gr2m/helpdesk/issues/5)
 - [Create a `cowsay` GitHub Action with JavaScript](https://github.com/gr2m/helpdesk/issues/4)
 - [GitHub Enterprise repository auditing](https://github.com/gr2m/helpdesk/issues/1) with [@jeffwilcox](https://github.com/jeffwilcox)
-
 
 <!--END_SECTION:helpdesk-shows-->
 
@@ -61,8 +59,8 @@ My goal is to automate everything about my helpdesk show that can be automated. 
 - [x] automate "Upcoming shows" / "Past shows" sections in the repository README — [#10](https://github.com/gr2m/helpdesk/issues/10)
 - [x] automate "Upcoming shows" / "Past shows" sections on [my profile page](https://github.com/gr2m/) — [#10](https://github.com/gr2m/helpdesk/issues/10)
 - [ ] add a comment to the issue when I go live on twitch
-- [ ] Send out tweet 30 minutes before the show goes live
-- [ ] Send out tweet when I go live on twitch
+- [x] Schedule tweet 30 minutes before the show goes live
+- [x] Schedule tweet when the show goes live
 - [ ] Send out tweet when the video is available on YouTube
 - [ ] add comment with a link to the twitch recording once it's available
 - [ ] add a comment with a link to the video on YouTube once it's available in maximal resolution
