@@ -12,7 +12,6 @@ dotenv.config();
 dayjs.extend(customParseFormat);
 dayjs.extend(utc);
 dayjs.extend(timezone);
-dayjs.tz.setDefault("America/Los_Angeles");
 
 const ANNOUNCEMENT_TWEET_TEMPLATE = `📯  Starting in 30 minutes
 
@@ -70,7 +69,7 @@ async function setScheduledTweets() {
         // "MMMM D, YYYY H:mma", // see workaround
         "MMMM D, YYYY H:mm",
         true
-      );
+      ).tz("America/Los_Angeles");
 
       // see workaround above. Parsing am/pm is not working
       if (time.get("hour") < 8) {
@@ -162,18 +161,10 @@ async function setScheduledTweets() {
     ).replace("{URL}", scheduledShow.issue.html_url);
     const liveNowScheduledAt = scheduledShow.scheduledAt;
 
-    console.log(`dayjs.tz.guess()`);
-    console.log(dayjs.tz.guess());
-
     console.log(`scheduledShow.scheduledAt`);
     console.log(scheduledShow.scheduledAt);
 
     if (scheduledAnnouncementTweet) {
-      console.log(`scheduledAnnouncementTweet.scheduledAt`);
-      console.log(scheduledAnnouncementTweet.scheduledAt);
-      console.log(`announcementScheduledAt`);
-      console.log(announcementScheduledAt);
-
       if (
         scheduledAnnouncementTweet.scheduledAt !== announcementScheduledAt ||
         announcementText.trim() !== scheduledAnnouncementTweet.tweet.text.trim()
@@ -210,11 +201,6 @@ async function setScheduledTweets() {
     }
 
     if (scheduledLiveNowTweet) {
-      console.log(`scheduledLiveNowTweet.scheduledAt`);
-      console.log(scheduledLiveNowTweet.scheduledAt);
-      console.log(`liveNowScheduledAt`);
-      console.log(liveNowScheduledAt);
-
       if (
         scheduledLiveNowTweet.scheduledAt !== liveNowScheduledAt ||
         liveNowText.trim() !== scheduledLiveNowTweet.tweet.text.trim()
