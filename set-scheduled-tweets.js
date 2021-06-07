@@ -156,6 +156,16 @@ async function setScheduledTweets() {
     ).replace("{URL}", scheduledShow.issue.html_url);
     const liveNowScheduledAt = scheduledShow.scheduledAt;
 
+    console.log(`scheduledAnnouncementTweet.scheduledAt`);
+    console.log(scheduledAnnouncementTweet.scheduledAt);
+    console.log(`announcementScheduledAt`);
+    console.log(announcementScheduledAt);
+
+    console.log(`announcementText.trim()`);
+    console.log(announcementText.trim());
+    console.log(`scheduledAnnouncementTweet.tweet.text.trim()`);
+    console.log(scheduledAnnouncementTweet.tweet.text.trim());
+
     if (scheduledAnnouncementTweet) {
       if (
         scheduledAnnouncementTweet.scheduledAt !== announcementScheduledAt ||
@@ -192,10 +202,20 @@ async function setScheduledTweets() {
       console.log("Announcement tweet scheduled.");
     }
 
+    console.log(`scheduledLiveNowTweet.scheduledAt`);
+    console.log(scheduledLiveNowTweet.scheduledAt);
+    console.log(`liveNowScheduledAt`);
+    console.log(liveNowScheduledAt);
+
+    console.log(`liveNowText.trim()`);
+    console.log(liveNowText.trim());
+    console.log(`scheduledLiveNowTweet.tweet.text.trim()`);
+    console.log(scheduledLiveNowTweet.tweet.text.trim());
+
     if (scheduledLiveNowTweet) {
       if (
         scheduledLiveNowTweet.scheduledAt !== liveNowScheduledAt ||
-        liveNowText !== scheduledLiveNowTweet.tweet.text.trim()
+        liveNowText.trim() !== scheduledLiveNowTweet.tweet.text.trim()
       ) {
         const options = {
           auth,
