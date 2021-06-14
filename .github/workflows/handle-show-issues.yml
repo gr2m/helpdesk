@@ -3,7 +3,6 @@ name: "Handle show issues"
 on:
   issues:
     types:
-      - opened
       - closed
       - edited
       - labeled
