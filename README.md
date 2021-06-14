@@ -12,6 +12,7 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
+- 📅 6/18 @ 12:30pm PT — [Advanced TypeScript for the future Octokit SDK](https://github.com/gr2m/helpdesk/issues/29) with [orta](https://github.com/rta)
 - 📅 6/14 @ noon PT — [Automating gr2m/helpdesk, Episode VI](https://github.com/gr2m/helpdesk/issues/27)
 
 ## Past shows
