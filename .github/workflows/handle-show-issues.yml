@@ -19,7 +19,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.labels.*.name, 'show')
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'show')
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -38,3 +38,12 @@ jobs:
           TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
           TWITTER_ACCOUNT_ID: ${{ secrets.TWITTER_ACCOUNT_ID }}
           TWITTER_USER_ID: ${{ secrets.TWITTER_USER_ID }}
+      - run: node get-schow-schedules.js
+        id: show-schedules
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: gr2m/set-cron-schedule-action@v2
+        with:
+          token: ${{ secrets.GR2M_PAT_WITH_WORKFLOW_SCOPE }}
+          cron: ${{ steps.show-schedules.outputs.schedule }}
+          workflow: handle-show-start.yml
