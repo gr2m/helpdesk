@@ -1,4 +1,4 @@
-name: "Update shows"
+name: "Handle show issues"
 
 on:
   issues:
@@ -11,14 +11,15 @@ on:
       - unlabeled
 
   workflow_dispatch: {}
-  
-concurrency: 
+
+concurrency:
   group: update-shows
   cancel-in-progress: true
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'show')
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
