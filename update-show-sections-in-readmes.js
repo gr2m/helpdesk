@@ -46,9 +46,7 @@ for (const issue of issues) {
 const upcomingShowsText = upcomingShows
   .map(({ datetime, title, url, guest }) => {
     if (guest) {
-      return `- ${datetime} — [${title}](${url}) with [${guest}](https://github.com/${guest.substr(
-        1
-      )})`;
+      return `- ${datetime} — [${title}](${url}) with [@${guest}](https://github.com/${guest})`;
     }
 
     return `- ${datetime} — [${title}](${url})`;
