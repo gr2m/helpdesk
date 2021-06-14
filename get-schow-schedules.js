@@ -63,9 +63,7 @@ const upcomingShowsCrons = showIssues
     //   // ignore open issues for shows that are in the past
     //   return;
 
-    return time
-      .add(new Date().getTimezoneOffset(), "minutes")
-      .format("m H D M [*]");
+    return time.subtract(time.utcOffset(), "minutes").format("m H D M [*]");
   })
   .filter(Boolean);
 
