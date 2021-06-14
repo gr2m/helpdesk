@@ -59,9 +59,9 @@ const upcomingShowsCrons = showIssues
       time = time.add(12, "hours");
     }
 
-    // if (time.toISOString() < dayjs().toISOString())
-    //   // ignore open issues for shows that are in the past
-    //   return;
+    if (time.toISOString() < dayjs().toISOString())
+      // ignore open issues for shows that are in the past
+      return;
 
     return time.subtract(time.utcOffset(), "minutes").format("m H D M [*]");
   })
