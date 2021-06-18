@@ -6,4 +6,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ok
+      - run: node create-comment-on-current-show.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.secrets.GR2M_PAT }}
