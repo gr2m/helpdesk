@@ -9,6 +9,7 @@ Got any questions or ideas? You can
 
 <!--START_SECTION:helpdesk-shows-->
 
+
 ## Upcoming shows
 
 - 📅 6/18 @ 12:30pm PT — [Advanced TypeScript for the future Octokit SDK](https://github.com/gr2m/helpdesk/issues/29) with [@orta](https://github.com/orta)
@@ -33,6 +34,7 @@ Got any questions or ideas? You can
 - [Octokit automation: OpenAPI](https://github.com/gr2m/helpdesk/issues/5)
 - [Create a `cowsay` GitHub Action with JavaScript](https://github.com/gr2m/helpdesk/issues/4)
 - [GitHub Enterprise repository auditing](https://github.com/gr2m/helpdesk/issues/1) with [@jeffwilcox](https://github.com/jeffwilcox)
+
 
 <!--END_SECTION:helpdesk-shows-->
 
