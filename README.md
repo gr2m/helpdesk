@@ -63,7 +63,7 @@ My goal is to automate everything about my helpdesk show that can be automated. 
 - [x] add a comment to the issue when I go live on twitch
 - [x] Schedule tweet 30 minutes before the show goes live
 - [x] Schedule tweet when the show goes live
-- [ ] Send out tweet when the video is available on YouTube
 - [ ] add comment with a link to the twitch recording once it's available
+- [ ] Send out tweet when the video is available on YouTube
 - [ ] add a comment with a link to the video on YouTube once it's available in maximal resolution
 - [ ] figure out a way to populate show notes from twitch comments
