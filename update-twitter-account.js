@@ -22,8 +22,6 @@ async function updateTwitterProfile() {
 
   // https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/manage-account-settings/api-reference/post-account-update_profile
   await twitterRequest(`POST account/update_profile.json`, {
-    subdomain: "api",
-    version: 1.1,
     auth,
     name: "🔴 Gregor is now live on twitch.tv/gregorcodes",
     url: "https://twitch.tv/gregorcodes",

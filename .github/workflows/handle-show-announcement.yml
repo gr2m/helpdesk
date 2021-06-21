@@ -1,4 +1,4 @@
-name: Handle show start
+name: Handle show announcement
 on:
   schedule:
     - cron: 57 19 24 6 *
@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: node handle-show-start.js
+      - run: node handle-show-announcement.js
         env:
           GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}
           TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}

@@ -56,7 +56,8 @@ const currentShowIssue = showIssues.find((issue) => {
   let time = dayjs.tz(tmp.format("YYYY-MM-DD HH:mm"), "America/Los_Angeles");
 
   const showIsWithinRange =
-    time < dayjs().add(15, "minutes") && time > dayjs().subtract(15, "minutes");
+    time < dayjs().subtract(15, "minutes") &&
+    time > dayjs().subtract(45, "minutes");
   return showIsWithinRange;
 });
 
@@ -84,7 +85,7 @@ const {
     owner: "gr2m",
     repo: "helpdesk",
     issue_number: currentShow.number,
-    body: "I'm now live on https://twitch.tv/gregorcodes",
+    body: "Going live in 30 minutes at https://twitch.tv/gregorcodes",
   }
 );
 console.log("Comment created at %s", commentUrl);
@@ -97,9 +98,10 @@ const auth = {
   accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 };
 
-const tweetText = `🔴  Now live at https://twitch.tv/gregorcodes
+const tweetText = `📯  Starting in 30 minutes
 
 💁🏻‍♂️  ${currentShow.title}
+🔴  Watch live at https://twitch.tv/gregorcodes
 
 ${currentShow.url}`;
 
@@ -117,12 +119,12 @@ await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
   issue_number: currentShow.number,
   body: currentShow.issue.body
     .replace(
-      /- \[ \] <!-- todo:start-tweet --> ([^\n]+)/,
-      "- [x]<!-- todo:start-tweet -->  $1"
+      /- \[ \] <!-- todo:30min-announcement-tweet --> ([^\n]+)/,
+      "- [x] <!-- todo:30min-announcement-tweet --> $1"
     )
     .replace(
-      /- \[ \] <!-- todo:issue-comment --> ([^\n]+)/,
-      "- [x] <!-- todo:issue-comment --> $1"
+      /- \[ \] <!-- todo:issue-announcement-comment --> ([^\n]+)/,
+      "- [x] <!-- todo:issue-announcement-comment --> $1"
     ),
 });
 

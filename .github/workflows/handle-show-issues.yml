@@ -28,15 +28,6 @@ jobs:
       - run: node update-show-sections-in-readmes.js
         env:
           GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}
-      - run: node set-scheduled-tweets.js
-        env:
-          GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}
-          TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
-          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-          TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
-          TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-          TWITTER_ACCOUNT_ID: ${{ secrets.TWITTER_ACCOUNT_ID }}
-          TWITTER_USER_ID: ${{ secrets.TWITTER_USER_ID }}
       - run: node get-schow-schedules.js
         id: show-schedules
         env:
