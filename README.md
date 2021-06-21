@@ -13,10 +13,10 @@ Got any questions or ideas? You can
 ## Upcoming shows
 
 - 📅 6/21 @ noon PT — [Automating gr2m/helpdesk: comment on issue when show begins](https://github.com/gr2m/helpdesk/issues/31)
-- 📅 6/18 @ 12:30pm PT — [Advanced TypeScript for the future Octokit SDK](https://github.com/gr2m/helpdesk/issues/29) with [@orta](https://github.com/orta)
 
 ## Past shows
 
+- [Advanced TypeScript for the future Octokit SDK](https://github.com/gr2m/helpdesk/issues/29) with [@orta](https://github.com/orta)
 - [Automating gr2m/helpdesk, Episode VI](https://github.com/gr2m/helpdesk/issues/27)
 - [Automating gr2m/helpdesk, Episode V](https://github.com/gr2m/helpdesk/issues/25)
 - [How to update lock files silently (Part II)](https://github.com/gr2m/helpdesk/issues/24)
