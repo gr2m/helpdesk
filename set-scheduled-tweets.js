@@ -20,12 +20,6 @@ const ANNOUNCEMENT_TWEET_TEMPLATE = `📯  Starting in 30 minutes
 
 {URL}`;
 
-const LIVE_NOW_TWEET_TEMPLATE = `🔴  Now live at https://twitch.tv/gregorcodes
-
-💁🏻‍♂️  {TITLE}
-
-{URL}`;
-
 setScheduledTweets().catch((error) => {
   console.error(error);
   process.exit(1);
@@ -142,12 +136,6 @@ async function setScheduledTweets() {
         );
       }
     );
-    const scheduledLiveNowTweet = scheduledTweets.find((scheduledTweet) => {
-      return (
-        scheduledTweet.showIssueNr === scheduledShow.number &&
-        scheduledTweet.type === "live_now"
-      );
-    });
 
     console.log('show: "%s"', scheduledShow.issue.title);
 
@@ -159,15 +147,6 @@ async function setScheduledTweets() {
       .subtract(30, "minutes")
       .toISOString()
       .replace(".000", "");
-
-    const liveNowText = LIVE_NOW_TWEET_TEMPLATE.replace(
-      "{TITLE}",
-      scheduledShow.title
-    ).replace("{URL}", scheduledShow.issue.html_url);
-    const liveNowScheduledAt = scheduledShow.scheduledAt;
-
-    console.log(`scheduledShow.scheduledAt`);
-    console.log(scheduledShow.scheduledAt);
 
     if (scheduledAnnouncementTweet) {
       if (
@@ -203,42 +182,6 @@ async function setScheduledTweets() {
         options
       );
       console.log("Announcement tweet scheduled.");
-    }
-
-    if (scheduledLiveNowTweet) {
-      if (
-        scheduledLiveNowTweet.scheduledAt !== liveNowScheduledAt ||
-        liveNowText.trim() !== scheduledLiveNowTweet.tweet.text.trim()
-      ) {
-        const options = {
-          auth,
-          account_id: process.env.TWITTER_ACCOUNT_ID,
-          scheduled_tweet_id: scheduledLiveNowTweet.tweet.id_str,
-          scheduled_at: liveNowScheduledAt,
-          text: liveNowText,
-        };
-        await twitterRequest(
-          `PUT accounts/:account_id/scheduled_tweets/:scheduled_tweet_id`,
-          options
-        );
-
-        console.log("Live now tweet updated");
-      } else {
-        console.log("Live now tweet is already set");
-      }
-    } else {
-      const options = {
-        auth,
-        account_id: process.env.TWITTER_ACCOUNT_ID,
-        scheduled_at: liveNowScheduledAt,
-        text: liveNowText,
-        as_user_id: process.env.TWITTER_USER_ID,
-      };
-      await twitterRequest(
-        `POST accounts/:account_id/scheduled_tweets`,
-        options
-      );
-      console.log("Live tweet scheduled.");
     }
   }
 

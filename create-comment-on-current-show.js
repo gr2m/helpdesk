@@ -6,6 +6,8 @@ import customParseFormat from "dayjs/plugin/customParseFormat.js";
 import utc from "dayjs/plugin/utc.js";
 import timezone from "dayjs/plugin/timezone.js";
 
+import { twitterRequest } from "./lib/twitter-request.js";
+
 dayjs.extend(customParseFormat);
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -53,18 +55,27 @@ const currentShowIssue = showIssues.find((issue) => {
 
   let time = dayjs.tz(tmp.format("YYYY-MM-DD HH:mm"), "America/Los_Angeles");
 
-  if (
-    time < dayjs().add(15, "minutes") &&
-    time > dayjs().subtract(15, "minutes")
-  ) {
-    return issue;
-  }
+  const showIsWithinRange =
+    time < dayjs().add(15, "minutes") && time > dayjs().subtract(15, "minutes");
+  return showIsWithinRange;
 });
 
 if (!currentShowIssue) {
   core.setFailed("No current issue found to comment on");
+  process.exit(1);
 }
 
+const [, , title, , guest] = currentShowIssue.title.split(/ (- |with @)/g);
+
+const currentShow = {
+  title,
+  number: currentShowIssue.number,
+  issue: currentShowIssue,
+  guest,
+  url: currentShowIssue.html_url,
+};
+
+// add comment on issue
 const {
   data: { html_url: commentUrl },
 } = await octokit.request(
@@ -72,31 +83,47 @@ const {
   {
     owner: "gr2m",
     repo: "helpdesk",
-    issue_number: currentShowIssue.number,
-    body: "I'm now live on https://twitch.tv/gregorcodes",
+    issue_number: currentShow.number,
+    body: "I'm now live on https://twitch.tv/gregorcodes\n\nSorry for the double comment, I'm just testing",
   }
 );
 console.log("Comment created at %s", commentUrl);
 
-// update todo in issue description
-const {
-  data: { body: issueBody },
-} = await octokit.request("GET /repos/{owner}/{repo}/issues/{issue_number}", {
-  owner: "gr2m",
-  repo: "helpdesk",
-  issue_number: currentShowIssue.number,
+// Tweet out that the show is live:
+const auth = {
+  consumerKey: process.env.TWITTER_CONSUMER_KEY,
+  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+  accessTokenKey: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+};
+
+const tweetText = `🔴  Now live at https://twitch.tv/gregorcodes
+
+💁🏻‍♂️  ${currentShow.title}
+
+(sorry for the double tweet, I'm testing)
+
+${currentShow.url}`;
+
+const data = await twitterRequest(`POST statuses/update.json`, {
+  subdomain: "api",
+  version: 1.1,
+  auth,
+  status: tweetText,
 });
 
+console.log("Tweeted at https://twitter.com/gr2m/status/%s", data.id_str);
+
+// update TODOs in issue
 const {
   data: { html_url: issueUrl },
 } = await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
   owner: "gr2m",
   repo: "helpdesk",
-  issue_number: currentShowIssue.number,
-  body: issueBody.replace(
-    /- \[ \] <!-- todo:issue-comment --> ([^\n]+)/,
-    "- [x] $1"
-  ),
+  issue_number: currentShow.number,
+  body: currentShow.issue.body
+    .replace(/- \[ \] <!-- todo:start-tweet --> ([^\n]+)/, "- [x] $1")
+    .replace(/- \[ \] <!-- todo:issue-comment --> ([^\n]+)/, "- [x] $1"),
 });
 
 console.log("TODO in issue updated: %s", issueUrl);
