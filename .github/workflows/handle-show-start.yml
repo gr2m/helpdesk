@@ -2,6 +2,8 @@ name: Handle show start
 on:
   schedule:
     - cron: 0 19 21 6 *
+
+  workflow_dispatch: {}
 jobs:
   test:
     runs-on: ubuntu-latest
