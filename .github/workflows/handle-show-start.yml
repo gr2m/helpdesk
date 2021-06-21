@@ -12,6 +12,6 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: node create-comment-on-current-show.js
+      - run: node handle-show-start.js
         env:
           GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}
