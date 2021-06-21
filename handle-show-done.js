@@ -55,7 +55,7 @@ const currentShowIssue = showIssues.find((issue) => {
 
   let time = dayjs.tz(tmp.format("YYYY-MM-DD HH:mm"), "America/Los_Angeles");
 
-  const showIsWithinRange = time < dayjs().add(4, "hours") && time > dayjs();
+  const showIsWithinRange = time.add(4, "hours") < dayjs() && time > dayjs();
   return showIsWithinRange;
 });
 
