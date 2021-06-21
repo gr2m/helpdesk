@@ -54,8 +54,8 @@ const currentShowIssue = showIssues.find((issue) => {
   let time = dayjs.tz(tmp.format("YYYY-MM-DD HH:mm"), "America/Los_Angeles");
 
   if (
-    time < dayjs().add(60, "minutes") &&
-    time > dayjs().subtract(60, "minutes")
+    time < dayjs().add(15, "minutes") &&
+    time > dayjs().subtract(15, "minutes")
   ) {
     return issue;
   }
