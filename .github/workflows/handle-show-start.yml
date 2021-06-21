@@ -15,4 +15,4 @@ jobs:
       - run: npm ci
       - run: node create-comment-on-current-show.js
         env:
-          GITHUB_TOKEN: ${{ secrets.secrets.GR2M_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}
