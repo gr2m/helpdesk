@@ -44,5 +44,10 @@ jobs:
       - uses: gr2m/set-cron-schedule-action@v2
         with:
           token: ${{ secrets.GR2M_PAT_WITH_WORKFLOW_SCOPE }}
-          cron: ${{ steps.show-schedules.outputs.schedule }}
+          cron: ${{ steps.show-schedules.outputs.schedule_start }}
           workflow: handle-show-start.yml
+      - uses: gr2m/set-cron-schedule-action@v2
+        with:
+          token: ${{ secrets.GR2M_PAT_WITH_WORKFLOW_SCOPE }}
+          cron: ${{ steps.show-schedules.outputs.schedule_announcement }}
+          workflow: handle-show-announcement.yml

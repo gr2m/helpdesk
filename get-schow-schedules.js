@@ -63,9 +63,23 @@ const upcomingShowsCrons = showIssues
       // ignore open issues for shows that are in the past
       return;
 
-    return time.subtract(time.utcOffset() + 3, "minutes").format("m H D M [*]");
+    return {
+      start: time
+        .subtract(time.utcOffset() + 3, "minutes")
+        .format("m H D M [*]"),
+      announcement: time
+        .subtract(time.utcOffset() + 33, "minutes")
+        .format("m H D M [*]"),
+    };
   })
   .filter(Boolean);
 
 console.log("CRON schedule for upcoming shows is: %j", upcomingShowsCrons);
-core.setOutput("schedule", upcomingShowsCrons.join("\n"));
+core.setOutput(
+  "schedule_start",
+  upcomingShowsCrons.map((schedule) => schedule.start).join("\n")
+);
+core.setOutput(
+  "schedule_announcement",
+  upcomingShowsCrons.map((schedule) => schedule.announcement).join("\n")
+);

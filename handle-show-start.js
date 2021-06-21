@@ -84,7 +84,7 @@ const {
     owner: "gr2m",
     repo: "helpdesk",
     issue_number: currentShow.number,
-    body: "I'm now live on https://twitch.tv/gregorcodes\n\nSorry for the double comment, I'm just testing",
+    body: "I'm now live on https://twitch.tv/gregorcodes",
   }
 );
 console.log("Comment created at %s", commentUrl);
@@ -100,8 +100,6 @@ const auth = {
 const tweetText = `🔴  Now live at https://twitch.tv/gregorcodes
 
 💁🏻‍♂️  ${currentShow.title}
-
-(sorry for the double tweet, I'm testing)
 
 ${currentShow.url}`;
 
