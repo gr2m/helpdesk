@@ -1,4 +1,4 @@
-name: Handle show start
+name: Handle show done
 on:
   issues:
     types:
