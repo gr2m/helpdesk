@@ -1,7 +1,7 @@
 name: Handle show start
 on:
   schedule:
-    - cron: 0 20 24 6 *
+    - cron: 57 19 24 6 *
   workflow_dispatch: {}
 jobs:
   test:
