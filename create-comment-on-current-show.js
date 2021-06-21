@@ -54,8 +54,8 @@ const currentShowIssue = showIssues.find((issue) => {
   let time = dayjs.tz(tmp.format("YYYY-MM-DD HH:mm"), "America/Los_Angeles");
 
   if (
-    time < dayjs().add(15, "minutes") &&
-    time > dayjs().subtract(15, "minutes")
+    time < dayjs().add(60, "minutes") &&
+    time > dayjs().subtract(60, "minutes")
   ) {
     return issue;
   }
@@ -65,9 +65,38 @@ if (!currentShowIssue) {
   core.setFailed("No current issue found to comment on");
 }
 
-octokit.request("POST /repos/{owner}/{repo}/issues/{issue_number}/comments", {
+const {
+  data: { html_url: commentUrl },
+} = await octokit.request(
+  "POST /repos/{owner}/{repo}/issues/{issue_number}/comments",
+  {
+    owner: "gr2m",
+    repo: "helpdesk",
+    issue_number: currentShowIssue.number,
+    body: "I'm now live on https://twitch.tv/gregorcodes",
+  }
+);
+console.log("Comment created at %s", commentUrl);
+
+// update todo in issue description
+const {
+  data: { body: issueBody },
+} = await octokit.request("GET /repos/{owner}/{repo}/issues/{issue_number}", {
   owner: "gr2m",
   repo: "helpdesk",
   issue_number: currentShowIssue.number,
-  body: "I'm now live on https://twitch.tv/gregorcodes",
 });
+
+const {
+  data: { html_url: issueUrl },
+} = await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
+  owner: "gr2m",
+  repo: "helpdesk",
+  issue_number: currentShowIssue.number,
+  body: issueBody.replace(
+    /- \[ \] <!-- todo:issue-comment --> ([^\n]+)/,
+    "- [x] $1"
+  ),
+});
+
+console.log("TODO in issue updated: %s", issueUrl);
