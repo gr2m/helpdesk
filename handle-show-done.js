@@ -71,3 +71,16 @@ await twitterRequest(`POST account/update_profile.json`, {
 });
 
 console.log("Twitter profile reverted to default");
+
+// update TODOs in issue
+await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
+  owner: "gr2m",
+  repo: "helpdesk",
+  issue_number: currentShow.number,
+  body: currentShow.issue.body.replace(
+    /- \[ \] <!-- todo:twitter-profile-reset --> ([^\n]+)/,
+    "- [x] <!-- todo:twitter-profile-reset --> $1 (https://twitter.com/gr2m)"
+  ),
+});
+
+console.log("TODOs in issue updated: %s", currentShow.url);

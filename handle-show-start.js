@@ -89,24 +89,6 @@ const {
 );
 console.log("Comment created at %s", commentUrl);
 
-// update TODOs in issue
-await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
-  owner: "gr2m",
-  repo: "helpdesk",
-  issue_number: currentShow.number,
-  body: currentShow.issue.body
-    .replace(
-      /- \[ \] <!-- todo:start-tweet --> ([^\n]+)/,
-      "- [x]<!-- todo:start-tweet -->  $1"
-    )
-    .replace(
-      /- \[ \] <!-- todo:issue-comment --> ([^\n]+)/,
-      "- [x] <!-- todo:issue-comment --> $1"
-    ),
-});
-
-console.log("TODOs in issue updated: %s", currentShow.url);
-
 // Tweet out that the show is live:
 const auth = {
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
@@ -126,7 +108,8 @@ const data = await twitterRequest(`POST statuses/update.json`, {
   status: tweetText,
 });
 
-console.log("Tweeted at https://twitter.com/gr2m/status/%s", data.id_str);
+const tweetUrl = `https://twitter.com/gr2m/status/${data.id_str}`;
+console.log("Tweeted at %s", tweetUrl);
 
 // update twitter profile
 // https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/manage-account-settings/api-reference/post-account-update_profile
@@ -137,3 +120,25 @@ await twitterRequest(`POST account/update_profile.json`, {
 });
 
 console.log("Twitter profile updated to link to twitch.tv/gregorcodes");
+
+// update TODOs in issue
+await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
+  owner: "gr2m",
+  repo: "helpdesk",
+  issue_number: currentShow.number,
+  body: currentShow.issue.body
+    .replace(
+      /- \[ \] <!-- todo:start-tweet --> ([^\n]+)/,
+      `- [x]<!-- todo:start-tweet -->  $1 (${tweetUrl})`
+    )
+    .replace(
+      /- \[ \] <!-- todo:start-issue-comment --> ([^\n]+)/,
+      `- [x] <!-- todo:start-issue-comment --> $1 (${commentUrl})`
+    )
+    .replace(
+      /- \[ \] <!-- todo:twitter-profile-show-mode --> ([^\n]+)/,
+      "- [x] <!-- todo:twitter-profile-show-mode --> $1 (https://twitter.com/gr2m)"
+    ),
+});
+
+console.log("TODOs in issue updated: %s", currentShow.url);

@@ -109,8 +109,9 @@ const data = await twitterRequest(`POST statuses/update.json`, {
   auth,
   status: tweetText,
 });
+const tweetUrl = `https://twitter.com/gr2m/status/${data.id_str}`;
 
-console.log("Tweeted at https://twitter.com/gr2m/status/%s", data.id_str);
+console.log("Tweeted at %s", tweetUrl);
 
 // update TODOs in issue
 await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
@@ -119,12 +120,12 @@ await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
   issue_number: currentShow.number,
   body: currentShow.issue.body
     .replace(
-      /- \[ \] <!-- todo:30min-announcement-tweet --> ([^\n]+)/,
-      "- [x] <!-- todo:30min-announcement-tweet --> $1"
+      /- \[ \] <!-- todo:announcement-tweet --> ([^\n]+)/,
+      `- [x] <!-- todo:announcement-tweet --> $1 (${tweetUrl})`
     )
     .replace(
-      /- \[ \] <!-- todo:issue-announcement-comment --> ([^\n]+)/,
-      "- [x] <!-- todo:issue-announcement-comment --> $1"
+      /- \[ \] <!-- todo:announcement-issue-comment --> ([^\n]+)/,
+      `- [x] <!-- todo:announcement-issue-comment --> $1 (${commentUrl})`
     ),
 });
 
