@@ -10,6 +10,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
+      - run: npm ci
       - run: node create-comment-on-current-show.js
         env:
           GITHUB_TOKEN: ${{ secrets.secrets.GR2M_PAT }}
