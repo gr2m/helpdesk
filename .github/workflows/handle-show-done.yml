@@ -1,0 +1,24 @@
+name: Handle show start
+on:
+  issues:
+    types:
+      - closed
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'show')
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: node handle-show-done.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}
+          TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          TWITTER_ACCOUNT_ID: ${{ secrets.TWITTER_ACCOUNT_ID }}
+          TWITTER_USER_ID: ${{ secrets.TWITTER_USER_ID }}

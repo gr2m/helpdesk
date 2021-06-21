@@ -55,8 +55,7 @@ const currentShowIssue = showIssues.find((issue) => {
 
   let time = dayjs.tz(tmp.format("YYYY-MM-DD HH:mm"), "America/Los_Angeles");
 
-  const showIsWithinRange =
-    time < dayjs().add(15, "minutes") && time > dayjs().subtract(15, "minutes");
+  const showIsWithinRange = time < dayjs().add(4, "hours") && time > dayjs();
   return showIsWithinRange;
 });
 
@@ -84,56 +83,17 @@ const {
     owner: "gr2m",
     repo: "helpdesk",
     issue_number: currentShow.number,
-    body: "I'm now live on https://twitch.tv/gregorcodes",
+    body: "Show is done for today, thank you all! Recording is coming up in a moment",
   }
 );
 console.log("Comment created at %s", commentUrl);
-
-// update TODOs in issue
-await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
-  owner: "gr2m",
-  repo: "helpdesk",
-  issue_number: currentShow.number,
-  body: currentShow.issue.body
-    .replace(
-      /- \[ \] <!-- todo:start-tweet --> ([^\n]+)/,
-      "- [x]<!-- todo:start-tweet -->  $1"
-    )
-    .replace(
-      /- \[ \] <!-- todo:issue-comment --> ([^\n]+)/,
-      "- [x] <!-- todo:issue-comment --> $1"
-    ),
-});
-
-console.log("TODOs in issue updated: %s", currentShow.url);
-
-// Tweet out that the show is live:
-const auth = {
-  consumerKey: process.env.TWITTER_CONSUMER_KEY,
-  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-  accessTokenKey: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
-};
-
-const tweetText = `🔴  Now live at https://twitch.tv/gregorcodes
-
-💁🏻‍♂️  ${currentShow.title}
-
-${currentShow.url}`;
-
-const data = await twitterRequest(`POST statuses/update.json`, {
-  auth,
-  status: tweetText,
-});
-
-console.log("Tweeted at https://twitter.com/gr2m/status/%s", data.id_str);
 
 // update twitter profile
 // https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/manage-account-settings/api-reference/post-account-update_profile
 await twitterRequest(`POST account/update_profile.json`, {
   auth,
-  name: "🔴 Gregor is now live on twitch.tv/gregorcodes",
-  url: "https://twitch.tv/gregorcodes",
+  name: "Gregor",
+  url: "https://github.com/gr2m/",
 });
 
-console.log("Twitter profile updated to link to twitch.tv/gregorcodes");
+console.log("Twitter profile reverted to default");
