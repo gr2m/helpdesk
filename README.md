@@ -12,7 +12,7 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
-
+- 📅 6/28 @ noon PT — [Automating gr2m/helpdesk: issue forms](https://github.com/gr2m/helpdesk/issues/34)
 
 ## Past shows
 
