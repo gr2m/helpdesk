@@ -45,7 +45,14 @@ const currentShowIssue = showIssues.find((issue) => {
 
   // workaround: cannot parse "June 3, 2021 1:00pm" but can parse "June 3, 2021 12:00pm"
   // workaround: cannot set default timezone, so parse the date/time string first, then use `.tz()` with the expected date/time format
-  const timeStringWithoutAmPm = timeString.replace(/(am|pm)\b/, "");
+  let timeStringWithoutAmPm = timeString.replace(/(am|pm)\b/, "");
+
+  let hours = parseInt(timeStringWithoutAmPm, 10);
+
+  if (hours < 9) {
+    timeStringWithoutAmPm = timeStringWithoutAmPm.replace(hours, hours + 12);
+  }
+
   const tmp = dayjs(
     [dayString, timeStringWithoutAmPm].join(" "),
     // "MMMM D, YYYY H:mma", // see workaround
