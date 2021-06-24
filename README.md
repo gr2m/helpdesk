@@ -12,10 +12,11 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
-- 📅 6/24 @ 1pm PT — [How to update lock files silently (Part III)](https://github.com/gr2m/helpdesk/issues/32)
+
 
 ## Past shows
 
+- [How to update lock files silently (Part III)](https://github.com/gr2m/helpdesk/issues/32)
 - [Automating gr2m/helpdesk: comment on issue when show begins](https://github.com/gr2m/helpdesk/issues/31)
 - [Advanced TypeScript for the future Octokit SDK](https://github.com/gr2m/helpdesk/issues/29) with [@orta](https://github.com/orta)
 - [Automating gr2m/helpdesk, Episode VI](https://github.com/gr2m/helpdesk/issues/27)
