@@ -1,6 +1,6 @@
 ---
 name: "💡 Show idea"
-description: "What would you like @gr2m to explore during a helpdesk show"
+description: "What would you like [@gr2m](https://github.com/gr2m) to explore during a helpdesk show"
 labels: idea
 body:
 - type: checkboxes
