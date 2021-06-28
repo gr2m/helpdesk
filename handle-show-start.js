@@ -136,7 +136,7 @@ await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
   body: currentShow.issue.body
     .replace(
       /- \[ \] <!-- todo:start-tweet --> ([^\n]+)/,
-      `- [x]<!-- todo:start-tweet -->  $1 (${tweetUrl})`
+      `- [x] <!-- todo:start-tweet -->  $1 (${tweetUrl})`
     )
     .replace(
       /- \[ \] <!-- todo:start-issue-comment --> ([^\n]+)/,
