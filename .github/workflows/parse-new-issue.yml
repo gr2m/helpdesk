@@ -13,6 +13,6 @@ jobs:
       - uses: stefanbuck/github-issue-praser@main
         id: issue-parser
         with:
-          template-path: .github/ISSUE_TEMPLATE/bug-report.yml
+          template-path: .github/ISSUE_TEMPLATE/01_show_idea.yml
 
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}'
