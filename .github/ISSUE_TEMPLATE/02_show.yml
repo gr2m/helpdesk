@@ -4,8 +4,9 @@ description: "🛑 Only to be used by Gregor"
 labels: show-test
 body:
   - type: markdown
-    value: |
-      Please do not submit an issue using this template unless you are @gr2m
+    attributes:
+      value: |
+        Please do not submit an issue using this template unless you are @gr2m
 
   - type: input
     id: name
