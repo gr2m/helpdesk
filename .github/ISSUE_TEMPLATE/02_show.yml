@@ -8,13 +8,6 @@ body:
       value: |
         Please do not submit an issue using this template unless you are @gr2m
 
-  - type: input
-    id: name
-    attributes:
-      label: Name of the show
-      description: for example "Issue forms"
-    validations:
-      required: true
   - type: dropdown
     id: type
     attributes:

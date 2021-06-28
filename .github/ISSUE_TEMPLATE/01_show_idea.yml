@@ -3,23 +3,23 @@ name: "💡 Show idea"
 description: "What would you like to be explored during a helpdesk show"
 labels: idea
 body:
-- type: checkboxes
-  id: search
-  attributes:
-    label: Please avoid duplicates
-    options:
-      - label: I checked [all past ideas and shows](https://github.com/gr2m/helpdesk/issues?q=is%3Aissue) and none of them matched my idea.
-        required: true
-- type: textarea
-  id: description
-  attributes:
-    label: Description
-    description: Please describe your idea
-  validations:
-    required: true
-- type: checkboxes
-  id: join
-  attributes:
-    label: Would you be interested in joining the show?
-    options:
-      - label: "yes"
+  - type: checkboxes
+    id: search
+    attributes:
+      label: Please avoid duplicates
+      options:
+        - label: I checked [all past ideas and shows](https://github.com/gr2m/helpdesk/issues?q=is%3Aissue) and none of them matched my idea.
+          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please describe your idea
+    validations:
+      required: true
+  - type: checkboxes
+    id: join
+    attributes:
+      label: Would you be interested in joining the show?
+      options:
+        - label: "yes"
