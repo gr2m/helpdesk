@@ -1,0 +1,49 @@
+---
+name: "📽 Show"
+description: "🛑 Only to be used by Gregor"
+labels: show-test
+body:
+  - type: markdown
+    value: |
+      Please do not submit an issue using this template unless you are @gr2m
+
+  - type: input
+    id: name
+    attributes:
+      label: Name of the show
+      description: for example "Issue forms"
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: What type of show will it be
+      options:
+        - automating helpdesk
+        - anything else
+    validations:
+      required: true
+  - type: input
+    id: guests
+    attributes:
+      label: Guests
+      description: comma-separated list of guests' logins
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: "What will this show be about"
+    validations:
+      required: true
+  - type: textarea
+    id: outline
+    attributes:
+      label: Outline
+      description: "Numbered list of sections of the upcoming show"
+    validations:
+      required: true
+  - type: textarea
+    id: todos
+    attributes:
+      label: Preparations
+      description: "List of things that should be prepared before the show"
