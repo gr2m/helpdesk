@@ -12,10 +12,11 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
-- 📅 7/30 @ 9am PT — [Running scheduled GitHub App tasks using Actions](https://github.com/gr2m/helpdesk/issues/38)
+
 
 ## Past shows
 
+- [Running scheduled GitHub App tasks using Actions](https://github.com/gr2m/helpdesk/issues/38)
 - [Automating gr2m/helpdesk: issue forms](https://github.com/gr2m/helpdesk/issues/34)
 - [How to update lock files silently (Part III)](https://github.com/gr2m/helpdesk/issues/32)
 - [Automating gr2m/helpdesk: comment on issue when show begins](https://github.com/gr2m/helpdesk/issues/31)
