@@ -91,7 +91,8 @@ const {
     owner: "gr2m",
     repo: "helpdesk",
     issue_number: currentShow.number,
-    body: "I'm now live on https://twitch.tv/gregorcodes",
+    // temporary fix for today's show
+    body: "I'm now live on https://twitch.tv/BdougieYO",
   }
 );
 console.log("Comment created at %s", commentUrl);
@@ -104,7 +105,7 @@ const auth = {
   accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 };
 
-const tweetText = `🔴  Now live at https://twitch.tv/gregorcodes
+const tweetText = `🔴  Now live at https://twitch.tv/BdougieYO
 
 💁🏻‍♂️  ${currentShow.title}
 
@@ -122,11 +123,11 @@ console.log("Tweeted at %s", tweetUrl);
 // https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/manage-account-settings/api-reference/post-account-update_profile
 await twitterRequest(`POST account/update_profile.json`, {
   auth,
-  name: "🔴 Gregor is now live on twitch.tv/gregorcodes",
-  url: "https://twitch.tv/gregorcodes",
+  name: "🔴 Gregor is now live on twitch.tv/BdougieYO",
+  url: "https://twitch.tv/BdougieYO",
 });
 
-console.log("Twitter profile updated to link to twitch.tv/gregorcodes");
+console.log("Twitter profile updated to link to twitch.tv/BdougieYO");
 
 // update TODOs in issue
 await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
