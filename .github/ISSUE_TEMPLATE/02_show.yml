@@ -1,12 +1,20 @@
 ---
 name: "📽 Show"
 description: "🛑 Only to be used by Gregor"
-labels: show-test
+labels:
+  - show
 body:
   - type: markdown
     attributes:
       value: |
         Please do not submit an issue using this template unless you are @gr2m
+
+  - type: input
+    id: title
+    attributes:
+      label: Title of the show
+      description: without any date/time prefix
+      placeholder: "e.g. issue forms"
 
   - type: dropdown
     id: type
@@ -17,11 +25,39 @@ body:
         - anything else
     validations:
       required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: Date of the show
+      description: in the format `YYYY-MM-DD`
+
+  - type: input
+    id: time
+    attributes:
+      label: Time when the show starts
+      description: in the format `H:mm` (24h format)
+
   - type: input
     id: guests
     attributes:
       label: Guests
       description: comma-separated list of guests' logins
+
+  - type: input
+    id: location
+    attributes:
+      label: Show URL
+      description: URL to the location where the show will taking place
+      value: https://www.twitch.tv/gregorcodes
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: comma-separated list of tags
+      value: automation
+
   - type: textarea
     id: summary
     attributes:
@@ -29,6 +65,7 @@ body:
       description: "What will this show be about"
     validations:
       required: true
+
   - type: textarea
     id: outline
     attributes:
@@ -36,6 +73,7 @@ body:
       description: "Numbered list of sections of the upcoming show"
     validations:
       required: true
+
   - type: textarea
     id: todos
     attributes:
