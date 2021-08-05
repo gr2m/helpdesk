@@ -22,4 +22,5 @@ jobs:
       - run: npm ci
       - run: node parse-new-show-issue.js
         env:
+          PARSED_ISSUE_JSON: ${{ steps.issue-parser.outputs.jsonString }}
           GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}
