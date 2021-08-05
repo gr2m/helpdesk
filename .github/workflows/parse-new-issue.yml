@@ -4,13 +4,13 @@ on:
   issues:
     types:
       - opened
-      # for debugging
-      - reopened
+      # debuging
+      - edited
 
 jobs:
   updateIssue:
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.labels.*.name, 'show') && github.event.sender.login == 'gr2m'
+    if: github.event.issue.title == 'DO NOT EDIT - Await parsing by GitHub Actions' && github.event.sender.login == 'gr2m'
     steps:
       - uses: actions/checkout@v2
       - run: cat $GITHUB_EVENT_PATH
@@ -18,5 +18,7 @@ jobs:
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/02_show.yml
-
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}'
+      - run: node parse-new-show-issue.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}

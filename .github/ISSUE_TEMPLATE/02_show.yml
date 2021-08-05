@@ -1,8 +1,8 @@
 ---
 name: "📽 Show"
 description: "🛑 Only to be used by Gregor"
-labels:
-  - show
+title: "DO NOT EDIT - Await parsing by GitHub Actions"
+
 body:
   - type: markdown
     attributes:

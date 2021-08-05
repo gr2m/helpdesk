@@ -1,0 +1,12 @@
+{
+  "action": "opened",
+  "issue": {
+    "body": "...",
+    "id": 123,
+    "labels": [],
+    "number": 1
+  },
+  "repository": {
+    "full_name": "gr2m/helpdesk"
+  }
+}
