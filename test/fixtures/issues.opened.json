@@ -1,6 +1,7 @@
 {
   "action": "opened",
   "issue": {
+    "title": "DO NOT EDIT - Await parsing by GitHub Actions",
     "body": "...",
     "id": 123,
     "labels": [],

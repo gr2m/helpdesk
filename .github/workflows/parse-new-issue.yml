@@ -19,6 +19,7 @@ jobs:
         with:
           template-path: .github/ISSUE_TEMPLATE/02_show.yml
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}'
+      - run: npm ci
       - run: node parse-new-show-issue.js
         env:
           GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}
