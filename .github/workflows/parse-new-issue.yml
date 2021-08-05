@@ -10,6 +10,7 @@ on:
 jobs:
   updateIssue:
     runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'show') && github.event.sender.login == 'gr2m'
     steps:
       - uses: actions/checkout@v2
       - run: cat $GITHUB_EVENT_PATH
