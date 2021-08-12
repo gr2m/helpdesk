@@ -37,7 +37,7 @@ const currentShowIssue = showIssues.find((issue) => {
     .replace(/^\w+, /, "")
     .trim();
   const timeString = issue.body
-    .match(/🕐[^(]+/)
+    .match(/🕐[^(\r\n]+/)
     .pop()
     .replace(/🕐\s*/, "")
     .replace("Pacific Time", "")
