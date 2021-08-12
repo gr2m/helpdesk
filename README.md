@@ -12,6 +12,7 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
+- 📅 8/19 @ 10:00am PT — [Creating tests for actions for faster iteration](https://github.com/gr2m/helpdesk/issues/46)
 - 📅 8/12 @ 10:00am PT — [Automating gr2m/helpdesk: Issue Forms part III](https://github.com/gr2m/helpdesk/issues/45)
 
 ## Past shows
