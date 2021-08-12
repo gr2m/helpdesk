@@ -2,6 +2,7 @@ import { readFile } from "fs/promises";
 
 import { Octokit } from "@octokit/core";
 import dayjs from "dayjs";
+import prettier from "prettier";
 
 if (process.env.GITHUB_ACTIONS) {
   const octokit = new Octokit({
@@ -92,7 +93,7 @@ _will be added after the show_`;
     repo,
     issue_number: event.issue.number,
     title,
-    body,
+    body: prettier.format(body, { parser: "markdown" }),
     labels: ["show"],
   });
 }
