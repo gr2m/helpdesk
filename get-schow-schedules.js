@@ -36,7 +36,7 @@ const upcomingShowsCrons = showIssues
       .replace(/^\w+, /, "")
       .trim();
     const timeString = issue.body
-      .match(/🕐[^(]+/)
+      .match(/🕐[^(\r\n]+/)
       .pop()
       .replace(/🕐\s*/, "")
       .replace("Pacific Time", "")
@@ -45,6 +45,7 @@ const upcomingShowsCrons = showIssues
     // workaround: cannot parse "June 3, 2021 1:00pm" but can parse "June 3, 2021 12:00pm"
     // workaround: cannot set default timezone, so parse the date/time string first, then use `.tz()` with the expected date/time format
     let timeStringWithoutAmPm = timeString.replace(/(am|pm)\b/, "");
+
     const tmp = dayjs(
       [dayString, timeStringWithoutAmPm].join(" "),
       // "MMMM D, YYYY H:mma", // see workaround
