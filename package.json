@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Answering all your (and some of my own) GitHub API/automation questions live at [twitch.tv/gregorcodes](https://www.twitch.tv/gregorcodes)",
   "scripts": {
-    "test": "exit 1"
+    "test": "node test/*-test.js"
   },
   "repository": "https://github.com/gr2m/helpdesk",
   "keywords": [],
