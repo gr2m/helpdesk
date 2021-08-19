@@ -13,10 +13,10 @@ Got any questions or ideas? You can
 ## Upcoming shows
 
 - 📅 8/26 @ 10:00am PT — [Creating tests for actions for faster iteration Part II](https://github.com/gr2m/helpdesk/issues/47)
-- 📅 8/19 @ 10:00am PT — [Creating tests for actions for faster iteration](https://github.com/gr2m/helpdesk/issues/46)
 
 ## Past shows
 
+- [Creating tests for actions for faster iteration](https://github.com/gr2m/helpdesk/issues/46)
 - [Automating gr2m/helpdesk: Issue Forms part III](https://github.com/gr2m/helpdesk/issues/45)
 - [Automating gr2m/helpdesk: issue forms part II](https://github.com/gr2m/helpdesk/issues/42)
 - [Running scheduled GitHub App tasks using Actions](https://github.com/gr2m/helpdesk/issues/38)
