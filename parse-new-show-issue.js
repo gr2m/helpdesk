@@ -4,7 +4,7 @@ import { Octokit } from "@octokit/core";
 import dayjs from "dayjs";
 import prettier from "prettier";
 
-if (process.env.GITHUB_ACTIONS) {
+if (process.env.GITHUB_ACTIONS && process.env.NODE_ENV !== "test") {
   const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,
   });

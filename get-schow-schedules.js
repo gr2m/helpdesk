@@ -11,7 +11,7 @@ dayjs.extend(customParseFormat);
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-if (process.env.GITHUB_ACTIONS) {
+if (process.env.GITHUB_ACTIONS && process.env.NODE_ENV !== "test") {
   // Create Octokit constructor with .paginate API and custom user agent
   const MyOctokit = Octokit.plugin(paginateRest).defaults({
     userAgent: "gr2m-helpdesk",
