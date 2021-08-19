@@ -1,4 +1,4 @@
-💁🏻 **Automating gr2m/helpdesk: Issue Forms part III**
+💁🏻 **Automating gr2m/helpdesk: Test show**
 📅 Thursday, August 12, 2021
 🕐 10:00am Pacific Time
 🎙️ _no guests_
@@ -9,7 +9,7 @@
 
 Subscribe to this issues to get a notification before the show begins and a summary after the show concludes.
 
-### Automating gr2m/helpdesk: Issue Forms part III
+### Automating gr2m/helpdesk: Test show
 
 3rd and (hopefully) final part about the issue form automation. see the first two episodes
 

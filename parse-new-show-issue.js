@@ -4,7 +4,7 @@ import { Octokit } from "@octokit/core";
 import dayjs from "dayjs";
 import prettier from "prettier";
 
-if (process.env.GITHUB_ACTIONS) {
+if (process.env.GITHUB_ACTIONS && process.env.NODE_ENV !== "test") {
   const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,
   });
@@ -40,7 +40,7 @@ export async function run(env, octokit) {
   const title = `📅 ${parseInt(month)}/${parseInt(
     day
   )} @ ${hours}:${minutes}${amOrPm} PT - ${showTitle}`;
-  const body = `💁🏻 **Automating gr2m/helpdesk: Issue Forms part III**
+  const body = `💁🏻 **${showTitle}**
 📅 ${dayjs(parsedIssue.date).format("dddd, MMMM D, YYYY")}
 🕐 ${hours}:${minutes}am Pacific Time
 🎙️ ${guests}

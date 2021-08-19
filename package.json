@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Answering all your (and some of my own) GitHub API/automation questions live at [twitch.tv/gregorcodes](https://www.twitch.tv/gregorcodes)",
-  "scripts": {},
+  "scripts": {
+    "test": "uvu test"
+  },
   "repository": "https://github.com/gr2m/helpdesk",
   "keywords": [],
   "author": "Gregor Martynus (https://twitter.com/gr2m)",
@@ -18,5 +20,9 @@
     "oauth-1.0a": "^2.2.6",
     "prettier": "^2.3.2",
     "readme-box": "^1.0.0"
+  },
+  "devDependencies": {
+    "mockdate": "^3.0.5",
+    "uvu": "^0.5.1"
   }
 }
