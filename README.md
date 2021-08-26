@@ -12,7 +12,7 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
-
+- 📅 9/2 @ 10:00am PT — [Creating tests for actions for faster iteration Part III](https://github.com/gr2m/helpdesk/issues/49)
 
 ## Past shows
 
