@@ -2,13 +2,13 @@
   {
     "number": 2,
     "title": "📅 8/26 @ 10:00am PT - Creating tests Part II",
-    "body": "📅 Thursday, August 26, 2021\n🕐 10:00am Pacific Time\n- [ ] <!-- todo:announcement-tweet --> 30 minute announcement tweet\n- [ ] <!-- todo:announcement-issue-comment --> 30 minute announcement comment\n",
+    "body": "📅 Thursday, August 26, 2021\n🕐 10:00am Pacific Time\n- [ ] <!-- todo:announcement-tweet --> 30 minute announcement tweet\n- [ ] <!-- todo:announcement-issue-comment --> 30 minute announcement comment\n- [ ] <!-- todo:start-tweet --> start of show tweet\n- [ ] <!-- todo:start-issue-comment --> comment on issue\n- [ ] <!-- todo:twitter-profile-show-mode --> Set twitter profile url\n",
     "html_url": "<show url #2>"
   },
   {
     "number": 1,
     "title": "📅 8/26 @ 10:00am PT - Creating tests",
-    "body": "📅 Thursday, August 19, 2021\n🕐 10:00am Pacific Time\n- [ ] <!-- todo:announcement-tweet --> 30 minute announcement tweet\n- [ ] <!-- todo:announcement-issue-comment --> 30 minute announcement comment\n",
+    "body": "📅 Thursday, August 19, 2021\n🕐 10:00am Pacific Time\n- [ ] <!-- todo:announcement-tweet --> 30 minute announcement tweet\n- [ ] <!-- todo:announcement-issue-comment --> 30 minute announcement comment\n- [ ] <!-- todo:start-tweet --> start of show tweet\n- [ ] <!-- todo:start-issue-comment --> comment on issue\n- [ ] <!-- todo:twitter-profile-show-mode --> Set twitter profile url\n",
     "html_url": "<show url #1>"
   }
 ]

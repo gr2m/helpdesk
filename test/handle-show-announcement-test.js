@@ -67,6 +67,9 @@ test("handle-show-announcement.js", async () => {
 🕐 10:00am Pacific Time
 - [x] <!-- todo:announcement-tweet --> 30 minute announcement tweet (https://twitter.com/gr2m/status/<twitter id_str>)
 - [x] <!-- todo:announcement-issue-comment --> 30 minute announcement comment (<new comment url>)
+- [ ] <!-- todo:start-tweet --> start of show tweet
+- [ ] <!-- todo:start-issue-comment --> comment on issue
+- [ ] <!-- todo:twitter-profile-show-mode --> Set twitter profile url
 `;
 
         deepEqual(parameters.body, body);
