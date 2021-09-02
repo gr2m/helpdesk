@@ -1,0 +1,11 @@
+{
+  "issue": {
+    "title": "📅 8/26 @ 10:00am PT - Creating tests",
+    "body": "- [ ] <!-- todo:twitter-profile-reset --> reset twitter profile\n",
+    "number": 1,
+    "html_url": "<issue url>"
+  },
+  "repository": {
+    "full_name": "gr2m/helpdesk"
+  }
+}
