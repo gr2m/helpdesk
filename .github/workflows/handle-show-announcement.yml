@@ -3,7 +3,7 @@ on:
   schedule: []
   workflow_dispatch: {}
 jobs:
-  test:
+  announce:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
