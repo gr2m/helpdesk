@@ -1,3 +1,4 @@
+import core from "@actions/core";
 import { Octokit } from "@octokit/core";
 import { paginateRest } from "@octokit/plugin-paginate-rest";
 import { ReadmeBox } from "readme-box";
