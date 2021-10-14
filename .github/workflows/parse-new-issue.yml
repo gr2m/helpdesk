@@ -18,7 +18,10 @@ jobs:
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/02_show.yml
-      - run: echo '${{ steps.issue-parser.outputs.jsonString }}'
+      - run: |
+          cat <<EOL
+          ${{ steps.issue-parser.outputs.jsonString}}
+          EOL
       - run: npm ci
       - run: node parse-new-show-issue.js
         env:
