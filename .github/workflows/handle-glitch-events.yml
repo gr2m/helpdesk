@@ -1,0 +1,10 @@
+name: Handle Glitch events
+on:
+  repository_dispatch:
+    types:
+      - glitch
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - run: cat $GITHUB_EVENT_PATH
