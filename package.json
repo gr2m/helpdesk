@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.4.0",
+    "@netlify/functions": "^0.7.2",
     "@octokit/core": "^3.4.0",
     "@octokit/plugin-paginate-rest": "^2.13.3",
     "dayjs": "^1.10.5",
