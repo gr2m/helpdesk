@@ -1,8 +1,8 @@
-name: Handle Glitch events
+name: Handle Twitch events
 on:
   repository_dispatch:
     types:
-      - glitch
+      - twitch
 jobs:
   debug:
     runs-on: ubuntu-latest

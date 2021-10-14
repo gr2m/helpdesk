@@ -32,7 +32,7 @@ async function run() {
     if (!callback) {
       console.log("You must set a callback URL as 2nd argument");
       console.log(
-        "node scripts/glitch-subscriptions.js create https://admiring-fermat-27876f-01e5b8.netlify.live"
+        "node scripts/twitch-subscriptions.js create https://admiring-fermat-27876f-01e5b8.netlify.live"
       );
       return;
     }
@@ -44,7 +44,7 @@ async function run() {
       },
       transport: {
         method: "webhook",
-        callback: callback + "/.netlify/functions/glitch",
+        callback: callback + "/.netlify/functions/twitch",
         secret: process.env.TWITCH_APP_EVENTSUB_SECRET,
       },
     };
@@ -82,7 +82,7 @@ async function run() {
     if (!callback) {
       console.log("You must set a callback URL as 2nd argument");
       console.log(
-        "node scripts/glitch-subscriptions.js delete https://admiring-fermat-27876f-01e5b8.netlify.live"
+        "node scripts/twitch-subscriptions.js delete https://admiring-fermat-27876f-01e5b8.netlify.live"
       );
       return;
     }

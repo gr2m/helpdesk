@@ -8,12 +8,12 @@ dotenv.config();
 
 const SUPPORTED_EVENT_TYPES = ["stream.online", "stream.offline"];
 
-// Some useful twitch commands to test the glitch function:
+// Some useful twitch commands to test the twitch function:
 //
 // - First, install the Twitch CLI: https://github.com/twitchdev/twitch-cli#readme
 // - Send request to test subscription verification
 //   ```
-//   twitch event verify-subscription subscribe -F http://localhost:8888/.netlify/functions/glitch
+//   twitch event verify-subscription subscribe -F http://localhost:8888/.netlify/functions/twitch
 //   ```
 // - Get user account ID by login
 //   ```
@@ -21,11 +21,11 @@ const SUPPORTED_EVENT_TYPES = ["stream.online", "stream.offline"];
 //   ```
 // - Trigger a "stream.online" event
 //   ```
-//   twitch event trigger streamup -F http://localhost:8888/.netlify/functions/glitch -s secret -t 581268875
+//   twitch event trigger streamup -F http://localhost:8888/.netlify/functions/twitch -s secret -t 581268875
 //   ```
 // - Trigger a "stream.offline" event
 //   ```
-//   twitch event trigger streamdown -F http://localhost:8888/.netlify/functions/glitch -s secret -t 581268875
+//   twitch event trigger streamdown -F http://localhost:8888/.netlify/functions/twitch -s secret -t 581268875
 //   ```
 
 /**
@@ -102,7 +102,7 @@ exports.handler = async function handler(event, context) {
   await octokit.request("POST /repos/{owner}/{repo}/dispatches", {
     owner: "gr2m",
     repo: "helpdesk",
-    event_type: "glitch",
+    event_type: "twitch",
     client_payload: {
       type,
     },
