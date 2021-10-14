@@ -1,9 +1,9 @@
 // @ts-check
 
-import crypto from "crypto";
+const crypto = require("crypto");
 
-import { Octokit } from "@octokit/core";
-import dotenv from "dotenv";
+const { Octokit } = require("@octokit/core");
+const dotenv = require("dotenv");
 dotenv.config();
 
 const SUPPORTED_EVENT_TYPES = ["stream.online", "stream.offline"];
@@ -34,7 +34,7 @@ const SUPPORTED_EVENT_TYPES = ["stream.online", "stream.offline"];
  *
  * @returns {Promise<import("@netlify/functions").HandlerResponse>}
  */
-export async function handler(event, context) {
+exports.handler = async function handler(event, context) {
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
@@ -114,7 +114,7 @@ export async function handler(event, context) {
     statusCode: 200,
     body: "ok",
   };
-}
+};
 
 function signatureIsValid({ messageId, timestamp, signature, body, secret }) {
   if (!secret) {
