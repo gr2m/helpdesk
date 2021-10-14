@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cat $GITHUB_EVENT_PATH
-      - uses: stefanbuck/github-issue-praser@main
+      - uses: stefanbuck/github-issue-parser@v2
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/02_show.yml
