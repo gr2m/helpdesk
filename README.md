@@ -12,7 +12,7 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
-- 📅 10/21 @ 10:00am PT — [Automating gr2m/helpdesk: Twitch Events](https://github.com/gr2m/helpdesk/issues/52)
+- 📅 10/21 @ 10:00am PT — [Automating gr2m/helpdesk: 📅 10/21 @ 10:00am PT](https://github.com/gr2m/helpdesk/issues/52) with [@Automating gr2m/helpdesk: Twitch Events](https://github.com/Automating gr2m/helpdesk: Twitch Events)
 
 ## Past shows
 
