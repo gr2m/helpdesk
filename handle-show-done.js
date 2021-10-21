@@ -25,6 +25,13 @@ if (process.env.GITHUB_ACTIONS && process.env.NODE_ENV !== "test") {
   run(process.env, core, octokit, twitterRequest);
 }
 
+/**
+ *
+ * @param {NodeJS.ProcessEnv} env
+ * @param {core} core
+ * @param {Octokit} octokit
+ * @param {any} twitterRequest
+ */
 export async function run(env, core, octokit, twitterRequest) {
   const event = JSON.parse(await readFile(env.GITHUB_EVENT_PATH));
   const currentShowIssue = event.issue;
@@ -84,7 +91,8 @@ export async function run(env, core, octokit, twitterRequest) {
       /- \[ \] <!-- todo:twitter-profile-reset --> ([^\n]+)/,
       "- [x] <!-- todo:twitter-profile-reset --> $1 (https://twitter.com/gr2m)"
     ),
+    state: "closed",
   });
 
-  core.info(`TODOs in issue updated: ${currentShow.url}`);
+  core.info(`TODOs in issue updated, issue closed: ${currentShow.url}`);
 }

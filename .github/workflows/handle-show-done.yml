@@ -1,12 +1,12 @@
 name: Handle show done
 on:
-  issues:
+  repository_dispatch:
     types:
-      - closed
+      - twitch
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.labels.*.name, 'show')
+    if: github.event.client_payload.type == 'stream.offline'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2

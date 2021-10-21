@@ -42,6 +42,7 @@ test("handle-show-done.js", async () => {
           issue_number: 1,
           owner: "gr2m",
           repo: "helpdesk",
+          state: "closed",
         });
         return;
       }
@@ -90,7 +91,7 @@ test("handle-show-done.js", async () => {
   deepEqual(outputLogs, [
     "Comment created at <comment url>",
     "Twitter profile reverted to default",
-    "TODOs in issue updated: <issue url>",
+    "TODOs in issue updated, issue closed: <issue url>",
   ]);
 });
 
