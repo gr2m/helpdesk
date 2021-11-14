@@ -12,7 +12,7 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
-
+- 📅 11/14 @ 12:30pm PT — [code walkthrough: `nock`](https://github.com/gr2m/helpdesk/issues/53)
 
 ## Past shows
 
