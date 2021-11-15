@@ -12,10 +12,11 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
-- 📅 11/14 @ 12:30pm PT — [code walkthrough: `nock`](https://github.com/gr2m/helpdesk/issues/53)
+
 
 ## Past shows
 
+- [code walkthrough: `nock`](https://github.com/gr2m/helpdesk/issues/53)
 - [Automating gr2m/helpdesk: Twitch Events](https://github.com/gr2m/helpdesk/issues/52)
 - [Creating tests for actions for faster iteration Part III](https://github.com/gr2m/helpdesk/issues/49)
 - [Creating tests for actions for faster iteration Part II](https://github.com/gr2m/helpdesk/issues/47)
