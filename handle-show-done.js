@@ -33,8 +33,56 @@ if (process.env.GITHUB_ACTIONS && process.env.NODE_ENV !== "test") {
  * @param {any} twitterRequest
  */
 export async function run(env, core, octokit, twitterRequest) {
-  const event = JSON.parse(await readFile(env.GITHUB_EVENT_PATH));
-  const currentShowIssue = event.issue;
+  // load open issues with the `show` label
+  const showIssues = await octokit.paginate(
+    "GET /repos/{owner}/{repo}/issues",
+    {
+      owner: "gr2m",
+      repo: "helpdesk",
+      labels: "show",
+      state: "open",
+      per_page: 100,
+    }
+  );
+
+  const currentShowIssue = showIssues.find((issue) => {
+    const dayString = issue.body
+      .match(/📅.*/)
+      .pop()
+      .replace(/📅\s*/, "")
+      .replace(/^\w+, /, "")
+      .trim();
+    const timeString = issue.body
+      .match(/🕐[^(\r\n]+/)
+      .pop()
+      .replace(/🕐\s*/, "")
+      .replace("Pacific Time", "")
+      .trim();
+
+    // workaround: cannot parse "June 3, 2021 1:00pm" but can parse "June 3, 2021 12:00pm"
+    // workaround: cannot set default timezone, so parse the date/time string first, then use `.tz()` with the expected date/time format
+    let timeStringWithoutAmPm = timeString.replace(/(am|pm)\b/, "");
+
+    let hours = parseInt(timeStringWithoutAmPm, 10);
+
+    if (hours < 9) {
+      timeStringWithoutAmPm = timeStringWithoutAmPm.replace(hours, hours + 12);
+    }
+
+    const tmp = dayjs(
+      [dayString, timeStringWithoutAmPm].join(" "),
+      // "MMMM D, YYYY H:mma", // see workaround
+      "MMMM D, YYYY H:mm",
+      true
+    );
+
+    let time = dayjs.tz(tmp.format("YYYY-MM-DD HH:mm"), "America/Los_Angeles");
+
+    const showIsWithinRange =
+      time < dayjs().add(5, "hours") && time > dayjs().subtract(15, "minutes");
+
+    return showIsWithinRange;
+  });
 
   if (!currentShowIssue) {
     core.setFailed("No current issue found to comment on");

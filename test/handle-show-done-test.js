@@ -1,15 +1,24 @@
+import { readFile } from "fs/promises";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 import { deepEqual } from "assert/strict";
 
 import { test } from "uvu";
+import MockDate from "mockdate";
 
 import { run } from "../handle-show-done.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 test("handle-show-done.js", async () => {
+  const issues = JSON.parse(
+    await readFile(join(__dirname, "fixtures/list-issues.json"))
+  );
+
+  // mock date (time of the show)
+  MockDate.set("2021-08-19T17:00:00.000Z");
+
   // mock environment variables
   const mockEnv = {
     GITHUB_EVENT_PATH: join(__dirname, "fixtures/issues.closed.json"),
@@ -21,6 +30,21 @@ test("handle-show-done.js", async () => {
 
   // mock octokit
   const mockOctokit = {
+    paginate: async (route, parameters) => {
+      if (route === "GET /repos/{owner}/{repo}/issues") {
+        deepEqual(parameters, {
+          owner: "gr2m",
+          repo: "helpdesk",
+          labels: "show",
+          state: "open",
+          per_page: 100,
+        });
+        return issues;
+      }
+
+      throw new Error("Unexpected route: " + route);
+    },
+
     request: async (route, parameters) => {
       if (
         route === "POST /repos/{owner}/{repo}/issues/{issue_number}/comments"
@@ -38,7 +62,7 @@ test("handle-show-done.js", async () => {
 
       if (route === "PATCH /repos/{owner}/{repo}/issues/{issue_number}") {
         deepEqual(parameters, {
-          body: "- [x] <!-- todo:twitter-profile-reset --> reset twitter profile (https://twitter.com/gr2m)\n",
+          body: "📅 Thursday, August 19, 2021\n🕐 10:00am Pacific Time\n- [ ] <!-- todo:announcement-tweet --> 30 minute announcement tweet\n- [ ] <!-- todo:announcement-issue-comment --> 30 minute announcement comment\n- [ ] <!-- todo:start-tweet --> start of show tweet\n- [ ] <!-- todo:start-issue-comment --> comment on issue\n- [ ] <!-- todo:twitter-profile-show-mode --> Set twitter profile url\n- [x] <!-- todo:twitter-profile-reset --> reset twitter profile (https://twitter.com/gr2m) (https://twitter.com/gr2m)",
           issue_number: 1,
           owner: "gr2m",
           repo: "helpdesk",
@@ -91,7 +115,7 @@ test("handle-show-done.js", async () => {
   deepEqual(outputLogs, [
     "Comment created at <comment url>",
     "Twitter profile reverted to default",
-    "TODOs in issue updated, issue closed: <issue url>",
+    "TODOs in issue updated, issue closed: <show url #1>",
   ]);
 });
 
