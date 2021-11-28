@@ -1,7 +1,6 @@
 name: Handle show announcement
 on:
-  schedule:
-    - cron: 27 19 28 11 *
+  schedule: []
   workflow_dispatch: {}
 jobs:
   announce:
