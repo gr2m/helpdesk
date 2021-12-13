@@ -12,7 +12,7 @@ Got any questions or ideas? You can
 
 ## Upcoming shows
 
-- 📅 12/19 @ 12:00pm PT — [📅 12/12 @ 12:00pm PT](https://github.com/gr2m/helpdesk/issues/59) with [@Refactoring a 10+ years old code base: nock (Part VI)](https://github.com/Refactoring a 10+ years old code base: nock (Part VI))
+- 📅 12/12 @ 12:00pm PT — [Refactoring a 10+ years old code base: nock (Part VI)](https://github.com/gr2m/helpdesk/issues/59)
 
 ## Past shows
 
