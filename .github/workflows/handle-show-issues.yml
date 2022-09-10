@@ -1,6 +1,5 @@
-name: "Handle show issues"
-
-on:
+name: Handle show issues
+"on":
   issues:
     types:
       - closed
@@ -8,22 +7,21 @@ on:
       - labeled
       - reopened
       - unlabeled
-
   workflow_dispatch: {}
-
 concurrency:
   group: update-shows
   cancel-in-progress: true
-
 jobs:
   update:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'show')
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.issue.labels.*.name, 'show')
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: lts/*
       - run: npm ci
       - run: node update-show-sections-in-readmes.js
         env:
