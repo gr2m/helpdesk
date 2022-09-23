@@ -9,7 +9,7 @@ jobs:
     if: github.event.client_payload.type == 'stream.offline'
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: lts/*
       - run: npm ci
