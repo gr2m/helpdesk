@@ -1,18 +1,17 @@
-name: "Parse new issue"
-
-on:
+name: Parse new issue
+"on":
   issues:
     types:
       - opened
-      # debuging
       - edited
-
 jobs:
   updateIssue:
     runs-on: ubuntu-latest
-    if: github.event.issue.title == 'DO NOT EDIT - Await parsing by GitHub Actions' && github.event.sender.login == 'gr2m'
+    if: >-
+      github.event.issue.title == 'DO NOT EDIT - Await parsing by GitHub
+      Actions' && github.event.sender.login == 'gr2m'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: cat $GITHUB_EVENT_PATH
       - uses: stefanbuck/github-issue-parser@v2
         id: issue-parser
